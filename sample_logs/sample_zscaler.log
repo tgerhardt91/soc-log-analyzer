@@ -1,0 +1,536 @@
+# ZScaler Web Proxy Log — generated sample
+# Fields: timestamp|username|src_ip|dst_url|category|action|bytes_sent|bytes_received|method|response_code|user_agent|threat_name|duration_ms
+2024-06-10 02:15:00|jsmith@corp.com|192.168.1.10|https://mega.nz/folder/xyzxyz|File Sharing|Allowed|4096|1048576|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||3400
+2024-06-10 08:00:53|lchen@corp.com|192.168.1.113|https://stackoverflow.com/repo|Software/Technology|Allowed|305|14012|GET|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||449
+2024-06-10 08:02:06|jsmith@corp.com|192.168.5.154|https://jira.atlassian.com/repo|Software/Technology|Allowed|2638|28368|GET|304|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||787
+2024-06-10 08:02:17|jsmith@corp.com|192.168.4.126|https://docker.com/api/data|Reference and Research|Allowed|1660|11061|POST|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||320
+2024-06-10 08:03:12|jsmith@corp.com|192.168.5.31|https://zoom.us/page|Health|Allowed|1584|32611|POST|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||75
+2024-06-10 08:03:18|amartinez@corp.com|192.168.5.41|https://pypi.org/api/data|Financial Services|Allowed|2743|8645|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||411
+2024-06-10 08:04:05|bwilson@corp.com|192.168.2.181|https://aws.amazon.com/api/data|Shopping|Allowed|390|44985|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||243
+2024-06-10 08:04:53|bwilson@corp.com|192.168.5.180|https://zoom.us/page|Software/Technology|Allowed|570|59061|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||345
+2024-06-10 08:05:04|lchen@corp.com|192.168.2.194|https://zoom.us/repo|Reference and Research|Allowed|4388|38036|GET|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||442
+2024-06-10 08:05:26|amartinez@corp.com|192.168.1.23|https://aws.amazon.com/api/data|Software/Technology|Allowed|2377|78089|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||153
+2024-06-10 08:07:46|lchen@corp.com|192.168.2.38|https://kubernetes.io/docs|Reference and Research|Allowed|2983|66088|GET|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||641
+2024-06-10 08:09:52|jsmith@corp.com|192.168.5.161|https://docker.com/repo|Reference and Research|Allowed|1378|65834|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||556
+2024-06-10 08:09:57|kpatel@corp.com|192.168.1.20|https://slack.com/repo|Financial Services|Allowed|3263|52673|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||587
+2024-06-10 08:10:40|emorgan@corp.com|192.168.1.74|https://pypi.org/|Social Networking|Allowed|1720|59304|POST|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||626
+2024-06-10 08:11:21|lchen@corp.com|192.168.3.70|https://jira.atlassian.com/repo|Social Networking|Allowed|1997|37084|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||531
+2024-06-10 08:11:32|bwilson@corp.com|192.168.1.193|https://kubernetes.io/docs|Shopping|Allowed|3396|28590|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||340
+2024-06-10 08:14:17|amartinez@corp.com|192.168.3.68|https://aws.amazon.com/page|Social Networking|Allowed|382|46384|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||373
+2024-06-10 08:14:28|jsmith@corp.com|192.168.5.34|https://linkedin.com/repo|Education|Allowed|1955|69987|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||675
+2024-06-10 08:16:23|bwilson@corp.com|192.168.3.187|https://stackoverflow.com/page|Business and Economy|Allowed|1026|79288|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||795
+2024-06-10 08:17:31|lchen@corp.com|192.168.5.54|https://github.com/|News and Media|Allowed|1650|28705|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||463
+2024-06-10 08:18:49|lchen@corp.com|192.168.3.102|https://confluence.atlassian.com/repo|Shopping|Allowed|1281|21914|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||424
+2024-06-10 08:19:44|emorgan@corp.com|192.168.3.88|https://zoom.us/repo|Education|Allowed|867|65351|GET|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||657
+2024-06-10 08:19:59|lchen@corp.com|192.168.5.27|https://jira.atlassian.com/page|Education|Allowed|1269|5425|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||120
+2024-06-10 08:21:49|amartinez@corp.com|192.168.1.107|https://pypi.org/api/data|Education|Allowed|3105|54129|POST|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||99
+2024-06-10 08:22:27|kpatel@corp.com|192.168.4.87|https://confluence.atlassian.com/|News and Media|Allowed|3265|13584|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||328
+2024-06-10 08:25:01|kpatel@corp.com|192.168.5.109|https://linkedin.com/page|Business and Economy|Allowed|532|50386|GET|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||158
+2024-06-10 08:25:52|bwilson@corp.com|192.168.1.177|https://jira.atlassian.com/api/data|News and Media|Allowed|2162|11172|GET|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||269
+2024-06-10 08:29:35|emorgan@corp.com|192.168.2.56|https://docs.microsoft.com/|Financial Services|Allowed|4238|54440|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||386
+2024-06-10 08:30:33|emorgan@corp.com|192.168.3.171|https://linkedin.com/repo|News and Media|Allowed|4473|79410|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||106
+2024-06-10 08:31:33|amartinez@corp.com|192.168.4.33|https://stackoverflow.com/|Health|Allowed|4029|30174|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||60
+2024-06-10 08:32:48|amartinez@corp.com|192.168.3.120|https://docker.com/api/data|Software/Technology|Allowed|1802|8842|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||429
+2024-06-10 08:34:48|lchen@corp.com|192.168.1.97|https://linkedin.com/|Social Networking|Allowed|2206|13253|GET|304|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||795
+2024-06-10 08:36:51|bwilson@corp.com|192.168.3.137|https://aws.amazon.com/docs|Education|Allowed|4097|11303|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||351
+2024-06-10 08:37:27|amartinez@corp.com|192.168.3.120|https://github.com/api/data|Social Networking|Allowed|703|4826|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||415
+2024-06-10 08:37:30|amartinez@corp.com|192.168.1.194|https://linkedin.com/repo|Health|Allowed|2584|36766|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||360
+2024-06-10 08:38:56|jsmith@corp.com|192.168.5.134|https://stackoverflow.com/api/data|News and Media|Allowed|1349|35764|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||768
+2024-06-10 08:39:41|amartinez@corp.com|192.168.5.131|https://zoom.us/repo|Software/Technology|Allowed|4559|29530|GET|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||478
+2024-06-10 08:40:37|bwilson@corp.com|192.168.3.101|https://docs.microsoft.com/|News and Media|Allowed|4322|45205|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||91
+2024-06-10 08:40:55|kpatel@corp.com|192.168.2.199|https://stackoverflow.com/docs|Shopping|Allowed|1815|20069|GET|304|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||788
+2024-06-10 08:42:13|jsmith@corp.com|192.168.2.191|https://stackoverflow.com/page|News and Media|Allowed|392|34146|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||677
+2024-06-10 08:44:43|kpatel@corp.com|192.168.4.106|https://aws.amazon.com/repo|Education|Allowed|2373|5261|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||736
+2024-06-10 08:47:15|kpatel@corp.com|192.168.3.14|https://linkedin.com/repo|Shopping|Allowed|394|11580|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||116
+2024-06-10 08:47:51|lchen@corp.com|192.168.1.140|https://pypi.org/api/data|Business and Economy|Allowed|974|8697|GET|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||690
+2024-06-10 08:52:05|bwilson@corp.com|192.168.2.128|https://docs.microsoft.com/api/data|Financial Services|Allowed|4391|28666|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||746
+2024-06-10 08:52:54|emorgan@corp.com|192.168.2.161|https://docker.com/repo|News and Media|Allowed|3751|74084|GET|304|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||123
+2024-06-10 08:54:09|amartinez@corp.com|192.168.3.91|https://pypi.org/repo|Business and Economy|Allowed|3182|64510|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||571
+2024-06-10 08:54:40|kpatel@corp.com|192.168.3.64|https://docker.com/page|Software/Technology|Allowed|2137|25487|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||731
+2024-06-10 08:54:42|amartinez@corp.com|192.168.1.63|https://linkedin.com/api/data|Shopping|Allowed|1343|63252|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||606
+2024-06-10 08:55:48|amartinez@corp.com|192.168.3.114|https://pypi.org/page|Shopping|Allowed|250|32546|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||714
+2024-06-10 08:56:02|amartinez@corp.com|192.168.2.59|https://github.com/api/data|Social Networking|Allowed|2275|52695|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||544
+2024-06-10 08:56:29|amartinez@corp.com|192.168.4.15|https://docker.com/api/data|Financial Services|Allowed|4260|41751|POST|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||301
+2024-06-10 08:57:34|kpatel@corp.com|192.168.2.172|https://stackoverflow.com/api/data|Social Networking|Allowed|2425|36806|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||359
+2024-06-10 08:59:02|bwilson@corp.com|192.168.2.69|https://slack.com/repo|Software/Technology|Allowed|2896|29839|GET|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||282
+2024-06-10 09:00:06|amartinez@corp.com|192.168.2.120|https://github.com/|Health|Allowed|3737|39066|POST|304|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||172
+2024-06-10 09:00:08|amartinez@corp.com|192.168.1.73|https://confluence.atlassian.com/docs|Reference and Research|Allowed|4128|49053|GET|304|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||440
+2024-06-10 09:00:13|amartinez@corp.com|192.168.3.36|https://pypi.org/api/data|Financial Services|Allowed|1678|37059|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||668
+2024-06-10 09:01:22|lchen@corp.com|192.168.1.13|https://zoom.us/repo|Social Networking|Allowed|604|11268|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||691
+2024-06-10 09:02:13|emorgan@corp.com|192.168.5.198|https://jira.atlassian.com/page|Business and Economy|Allowed|3810|44801|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||728
+2024-06-10 09:02:36|bwilson@corp.com|192.168.3.145|https://npmjs.com/api/data|Shopping|Allowed|2481|74147|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||555
+2024-06-10 09:02:51|jsmith@corp.com|192.168.4.27|https://confluence.atlassian.com/api/data|News and Media|Allowed|2004|31772|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||60
+2024-06-10 09:03:27|kpatel@corp.com|192.168.4.15|https://pypi.org/repo|Education|Allowed|2088|2217|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||105
+2024-06-10 09:04:42|lchen@corp.com|192.168.3.188|https://kubernetes.io/|Software/Technology|Allowed|1853|67554|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||469
+2024-06-10 09:10:19|amartinez@corp.com|192.168.3.197|https://confluence.atlassian.com/docs|Financial Services|Allowed|4579|79643|POST|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||177
+2024-06-10 09:11:10|jsmith@corp.com|192.168.2.126|https://docker.com/|Software/Technology|Allowed|1115|77497|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||340
+2024-06-10 09:11:20|jsmith@corp.com|192.168.5.27|https://npmjs.com/repo|Financial Services|Allowed|687|8445|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||65
+2024-06-10 09:11:53|amartinez@corp.com|192.168.4.195|https://jira.atlassian.com/docs|Financial Services|Allowed|3253|2638|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||678
+2024-06-10 09:12:05|kpatel@corp.com|192.168.3.153|https://slack.com/page|Social Networking|Allowed|2988|11570|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||354
+2024-06-10 09:14:47|amartinez@corp.com|192.168.4.200|https://zoom.us/page|Education|Allowed|4976|53155|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||270
+2024-06-10 09:17:31|jsmith@corp.com|192.168.1.131|https://github.com/docs|Health|Allowed|2490|25660|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||323
+2024-06-10 09:19:46|jsmith@corp.com|192.168.3.70|https://docs.microsoft.com/docs|Education|Allowed|2437|29817|POST|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||765
+2024-06-10 09:20:05|emorgan@corp.com|192.168.1.91|https://npmjs.com/repo|Social Networking|Allowed|1134|7723|POST|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||482
+2024-06-10 09:21:16|amartinez@corp.com|192.168.4.79|https://aws.amazon.com/api/data|Software/Technology|Allowed|2386|64294|GET|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||773
+2024-06-10 09:22:02|bwilson@corp.com|192.168.2.139|https://pypi.org/docs|Business and Economy|Allowed|1003|4689|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||70
+2024-06-10 09:22:03|amartinez@corp.com|192.168.1.15|https://kubernetes.io/api/data|Health|Allowed|430|75489|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||449
+2024-06-10 09:23:10|jsmith@corp.com|192.168.3.124|https://google.com/|Software/Technology|Allowed|4051|2791|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||222
+2024-06-10 09:26:26|jsmith@corp.com|192.168.5.100|https://zoom.us/repo|Social Networking|Allowed|1794|58116|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||678
+2024-06-10 09:26:41|emorgan@corp.com|192.168.2.72|https://aws.amazon.com/api/data|Social Networking|Allowed|4303|40244|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||383
+2024-06-10 09:26:57|bwilson@corp.com|192.168.3.64|https://docker.com/repo|Software/Technology|Allowed|4722|70917|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||696
+2024-06-10 09:27:40|lchen@corp.com|192.168.2.160|https://pypi.org/|Reference and Research|Allowed|1581|38727|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||139
+2024-06-10 09:29:02|bwilson@corp.com|192.168.2.65|https://slack.com/repo|Financial Services|Allowed|686|39405|GET|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||532
+2024-06-10 09:29:08|lchen@corp.com|192.168.4.186|https://pypi.org/|Education|Allowed|4641|69531|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||486
+2024-06-10 09:29:19|bwilson@corp.com|192.168.5.10|https://google.com/api/data|Reference and Research|Allowed|871|56548|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||655
+2024-06-10 09:29:48|amartinez@corp.com|192.168.3.103|https://confluence.atlassian.com/|Reference and Research|Allowed|2225|47210|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||124
+2024-06-10 09:30:04|amartinez@corp.com|192.168.5.125|https://slack.com/docs|Health|Allowed|4221|56187|POST|304|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||327
+2024-06-10 09:31:08|amartinez@corp.com|192.168.5.155|https://zoom.us/api/data|Social Networking|Allowed|4634|21925|POST|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||294
+2024-06-10 09:32:55|emorgan@corp.com|192.168.2.42|https://jira.atlassian.com/|Reference and Research|Allowed|2209|33630|POST|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||514
+2024-06-10 09:33:04|bwilson@corp.com|192.168.3.58|https://github.com/docs|Shopping|Allowed|4313|27204|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||279
+2024-06-10 09:33:50|kpatel@corp.com|192.168.4.148|https://confluence.atlassian.com/page|Software/Technology|Allowed|2082|20494|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||408
+2024-06-10 09:34:44|kpatel@corp.com|192.168.3.159|https://aws.amazon.com/docs|Shopping|Allowed|823|40287|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||202
+2024-06-10 09:34:49|amartinez@corp.com|192.168.1.105|https://docs.microsoft.com/|News and Media|Allowed|1628|12683|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||51
+2024-06-10 09:37:34|emorgan@corp.com|192.168.2.198|https://aws.amazon.com/api/data|Education|Allowed|4210|38847|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||675
+2024-06-10 09:38:23|kpatel@corp.com|192.168.5.38|https://confluence.atlassian.com/|Shopping|Allowed|2116|59086|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||180
+2024-06-10 09:41:03|kpatel@corp.com|192.168.1.118|https://kubernetes.io/repo|Health|Allowed|1894|39075|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||731
+2024-06-10 09:43:07|jsmith@corp.com|192.168.2.194|https://jira.atlassian.com/|Social Networking|Allowed|4615|13000|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||783
+2024-06-10 09:43:39|amartinez@corp.com|192.168.5.158|https://zoom.us/page|Reference and Research|Allowed|254|3831|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||526
+2024-06-10 09:43:49|emorgan@corp.com|192.168.1.164|https://stackoverflow.com/repo|Reference and Research|Allowed|3357|74657|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||78
+2024-06-10 09:43:57|bwilson@corp.com|192.168.4.116|https://github.com/page|Social Networking|Allowed|1490|46145|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||646
+2024-06-10 09:45:08|emorgan@corp.com|192.168.2.167|https://stackoverflow.com/docs|Education|Allowed|2915|40588|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||768
+2024-06-10 09:45:25|kpatel@corp.com|192.168.2.185|https://jira.atlassian.com/docs|Health|Allowed|891|31684|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||93
+2024-06-10 09:47:33|lchen@corp.com|192.168.5.26|https://linkedin.com/page|Health|Allowed|1247|62692|GET|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||404
+2024-06-10 09:49:06|amartinez@corp.com|192.168.2.195|https://aws.amazon.com/api/data|Health|Allowed|2485|44275|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||707
+2024-06-10 09:49:27|kpatel@corp.com|192.168.5.38|https://npmjs.com/api/data|Social Networking|Allowed|4210|6816|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||273
+2024-06-10 09:50:17|kpatel@corp.com|192.168.1.132|https://jira.atlassian.com/api/data|Software/Technology|Allowed|785|66814|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||55
+2024-06-10 09:50:37|bwilson@corp.com|192.168.5.51|https://npmjs.com/|Financial Services|Allowed|507|70603|GET|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||270
+2024-06-10 09:50:43|bwilson@corp.com|192.168.4.200|https://docs.microsoft.com/docs|Reference and Research|Allowed|369|55014|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||490
+2024-06-10 09:50:58|jsmith@corp.com|192.168.2.68|https://confluence.atlassian.com/repo|Business and Economy|Allowed|4515|30773|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||323
+2024-06-10 09:51:44|bwilson@corp.com|192.168.2.35|https://docs.microsoft.com/repo|Social Networking|Allowed|2153|72182|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||288
+2024-06-10 09:52:28|amartinez@corp.com|192.168.4.16|https://npmjs.com/docs|Software/Technology|Allowed|2107|49366|GET|304|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||418
+2024-06-10 09:52:30|jsmith@corp.com|192.168.5.171|https://kubernetes.io/api/data|Financial Services|Allowed|4955|2868|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||522
+2024-06-10 09:52:42|amartinez@corp.com|192.168.1.187|https://zoom.us/page|Shopping|Allowed|582|59230|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||471
+2024-06-10 09:58:10|bwilson@corp.com|192.168.1.51|https://zoom.us/repo|Health|Allowed|540|63220|POST|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||545
+2024-06-10 10:00:53|lchen@corp.com|192.168.5.104|https://slack.com/repo|Software/Technology|Allowed|430|31637|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||397
+2024-06-10 10:01:54|kpatel@corp.com|192.168.2.35|https://docs.microsoft.com/page|Health|Allowed|793|51914|GET|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||644
+2024-06-10 10:03:06|jsmith@corp.com|192.168.4.38|https://aws.amazon.com/repo|Shopping|Allowed|1218|7610|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||166
+2024-06-10 10:03:14|lchen@corp.com|192.168.3.37|https://linkedin.com/repo|Financial Services|Allowed|2159|23692|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||119
+2024-06-10 10:04:28|lchen@corp.com|192.168.2.53|https://linkedin.com/page|Health|Allowed|1789|14369|POST|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||493
+2024-06-10 10:05:26|emorgan@corp.com|192.168.3.92|https://aws.amazon.com/docs|Reference and Research|Allowed|2212|65456|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||155
+2024-06-10 10:05:48|bwilson@corp.com|192.168.4.87|https://docker.com/docs|News and Media|Allowed|957|21690|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||407
+2024-06-10 10:06:19|amartinez@corp.com|192.168.2.91|https://github.com/docs|News and Media|Allowed|2963|24415|POST|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||298
+2024-06-10 10:07:21|amartinez@corp.com|192.168.3.12|https://confluence.atlassian.com/repo|News and Media|Allowed|605|24107|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||317
+2024-06-10 10:08:21|kpatel@corp.com|192.168.3.72|https://docs.microsoft.com/page|Education|Allowed|3583|9775|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||485
+2024-06-10 10:09:33|amartinez@corp.com|192.168.1.45|https://kubernetes.io/page|Shopping|Allowed|4396|50487|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||421
+2024-06-10 10:10:15|amartinez@corp.com|192.168.4.11|https://aws.amazon.com/docs|News and Media|Allowed|3778|24265|GET|304|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||135
+2024-06-10 10:10:18|lchen@corp.com|192.168.4.108|https://kubernetes.io/|Software/Technology|Allowed|213|49586|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||161
+2024-06-10 10:12:33|bwilson@corp.com|192.168.3.139|https://slack.com/repo|Business and Economy|Allowed|2927|57852|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||536
+2024-06-10 10:12:51|bwilson@corp.com|192.168.2.38|https://linkedin.com/page|Shopping|Allowed|1624|61446|POST|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||241
+2024-06-10 10:13:38|amartinez@corp.com|192.168.5.179|https://aws.amazon.com/docs|Social Networking|Allowed|3158|9357|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||516
+2024-06-10 10:14:00|amartinez@corp.com|192.168.4.11|https://jira.atlassian.com/docs|Shopping|Allowed|3563|36606|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||355
+2024-06-10 10:14:09|amartinez@corp.com|192.168.4.128|https://linkedin.com/api/data|Business and Economy|Allowed|2152|17074|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||61
+2024-06-10 10:15:02|kpatel@corp.com|192.168.1.15|https://docs.microsoft.com/api/data|Health|Allowed|235|69221|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||117
+2024-06-10 10:15:24|jsmith@corp.com|192.168.4.25|https://docs.microsoft.com/docs|Financial Services|Allowed|1536|30971|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||183
+2024-06-10 10:16:40|jsmith@corp.com|192.168.1.192|https://aws.amazon.com/page|Shopping|Allowed|4695|69296|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||794
+2024-06-10 10:18:05|jsmith@corp.com|192.168.2.143|https://docker.com/api/data|Shopping|Allowed|4826|19061|POST|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||499
+2024-06-10 10:18:36|amartinez@corp.com|192.168.5.178|https://zoom.us/docs|Reference and Research|Allowed|3203|75759|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||354
+2024-06-10 10:19:03|emorgan@corp.com|192.168.1.172|https://kubernetes.io/api/data|Social Networking|Allowed|2982|31861|GET|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||108
+2024-06-10 10:19:46|emorgan@corp.com|192.168.5.93|https://google.com/repo|Education|Allowed|1153|41074|GET|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||464
+2024-06-10 10:20:20|emorgan@corp.com|192.168.1.162|https://kubernetes.io/docs|Software/Technology|Allowed|4512|26458|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||373
+2024-06-10 10:27:17|kpatel@corp.com|192.168.1.161|https://google.com/|Financial Services|Allowed|2482|3020|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||343
+2024-06-10 10:28:18|lchen@corp.com|192.168.1.156|https://linkedin.com/|Health|Allowed|800|62880|POST|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||226
+2024-06-10 10:28:28|bwilson@corp.com|192.168.4.130|https://google.com/docs|Health|Allowed|2157|62748|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||564
+2024-06-10 10:29:38|lchen@corp.com|192.168.4.48|https://docker.com/docs|Education|Allowed|3903|5590|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||300
+2024-06-10 10:30:06|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|322|1847|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:09|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|405|849|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:09|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|259|1895|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:14|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|354|599|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:15|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|464|686|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:15|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|128|1590|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:18|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|376|821|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:19|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|496|1763|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:22|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|147|1045|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:26|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|300|1264|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:27|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|260|1886|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:30|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|235|1921|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:32|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|273|1377|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:33|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|274|1961|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:45|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|219|878|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:49|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|121|1763|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:52|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|216|1037|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:55|kpatel@corp.com|192.168.4.13|https://pypi.org/api/data|Education|Allowed|1455|25506|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||504
+2024-06-10 10:30:55|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|361|531|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:56|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|334|1173|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:30:59|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|283|1107|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:31:08|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|432|1548|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:31:13|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|439|1719|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:31:22|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|309|1566|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:31:23|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|415|1966|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:31:25|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|403|1573|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:31:25|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|360|1635|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:31:28|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|115|1060|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:31:28|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|487|738|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:31:34|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|444|629|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:31:40|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|474|1147|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:31:45|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|373|1079|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:31:48|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|208|1751|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:31:55|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|398|770|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:31:57|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|226|532|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:32:01|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|323|1122|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:32:08|emorgan@corp.com|192.168.2.63|https://jira.atlassian.com/|Health|Allowed|4967|6237|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||449
+2024-06-10 10:32:21|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|366|885|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:32:22|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|125|997|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:32:27|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|177|510|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:32:37|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|366|1380|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:32:39|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|181|768|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:32:45|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|163|1678|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:32:47|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|468|1392|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:32:49|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|293|1273|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:32:53|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|140|624|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:32:56|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|177|1544|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:33:02|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|382|1768|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:33:04|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|114|716|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:33:07|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|312|1279|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:33:08|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|298|1645|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:33:13|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|180|731|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:33:16|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|109|672|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:33:17|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|332|1565|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:33:19|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|443|1904|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:33:21|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|390|1569|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:33:23|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|287|704|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:33:24|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|399|1890|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:33:30|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|416|1636|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:33:43|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|306|1678|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:33:47|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|425|1443|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:33:58|kpatel@corp.com|192.168.99.99|https://pastebin.com/raw/xK9mzP|Unknown|Allowed|204|1765|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||100
+2024-06-10 10:34:06|amartinez@corp.com|192.168.1.196|https://jira.atlassian.com/|Shopping|Allowed|2063|73726|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||615
+2024-06-10 10:34:46|jsmith@corp.com|192.168.2.10|https://stackoverflow.com/api/data|Education|Allowed|1551|64166|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||65
+2024-06-10 10:35:27|emorgan@corp.com|192.168.1.137|https://slack.com/repo|Health|Allowed|2004|74721|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||619
+2024-06-10 10:35:45|jsmith@corp.com|192.168.2.18|https://google.com/docs|Reference and Research|Allowed|2359|75769|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||735
+2024-06-10 10:38:02|bwilson@corp.com|192.168.1.40|https://kubernetes.io/docs|Software/Technology|Allowed|549|26544|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||263
+2024-06-10 10:38:28|amartinez@corp.com|192.168.2.87|https://github.com/page|News and Media|Allowed|2310|69124|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||222
+2024-06-10 10:42:08|lchen@corp.com|192.168.5.26|https://aws.amazon.com/repo|Financial Services|Allowed|2893|34160|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||670
+2024-06-10 10:43:09|amartinez@corp.com|192.168.2.166|https://jira.atlassian.com/repo|Shopping|Allowed|4679|7216|POST|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||509
+2024-06-10 10:43:19|lchen@corp.com|192.168.3.45|https://aws.amazon.com/repo|Health|Allowed|4044|39423|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||487
+2024-06-10 10:43:35|bwilson@corp.com|192.168.2.87|https://aws.amazon.com/docs|Financial Services|Allowed|3402|10948|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||375
+2024-06-10 10:44:12|bwilson@corp.com|192.168.1.45|https://docker.com/docs|Social Networking|Allowed|2866|19534|POST|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||604
+2024-06-10 10:45:36|lchen@corp.com|192.168.3.41|https://kubernetes.io/docs|Financial Services|Allowed|3547|46985|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||288
+2024-06-10 10:45:41|emorgan@corp.com|192.168.5.123|https://docker.com/|Education|Allowed|397|54689|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||439
+2024-06-10 10:46:27|amartinez@corp.com|192.168.2.119|https://jira.atlassian.com/api/data|Business and Economy|Allowed|3415|47646|GET|304|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||290
+2024-06-10 10:46:51|kpatel@corp.com|192.168.2.195|https://github.com/repo|Reference and Research|Allowed|4675|61263|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||156
+2024-06-10 10:48:07|lchen@corp.com|192.168.3.43|https://linkedin.com/docs|Education|Allowed|4640|78614|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||749
+2024-06-10 10:49:32|lchen@corp.com|192.168.3.59|https://docs.microsoft.com/page|Health|Allowed|4495|18317|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||524
+2024-06-10 10:50:06|bwilson@corp.com|192.168.2.98|https://jira.atlassian.com/repo|Social Networking|Allowed|2311|58702|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||385
+2024-06-10 10:50:13|bwilson@corp.com|192.168.4.173|https://linkedin.com/api/data|Business and Economy|Allowed|1128|65338|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||365
+2024-06-10 10:50:52|kpatel@corp.com|192.168.3.100|https://docs.microsoft.com/repo|Social Networking|Allowed|2118|26035|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||500
+2024-06-10 10:52:07|amartinez@corp.com|192.168.3.52|https://github.com/api/data|Reference and Research|Allowed|3477|56977|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||767
+2024-06-10 10:53:56|amartinez@corp.com|192.168.5.118|https://github.com/|Social Networking|Allowed|4905|77738|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||514
+2024-06-10 10:55:12|lchen@corp.com|192.168.4.42|https://aws.amazon.com/|News and Media|Allowed|3919|9164|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||358
+2024-06-10 10:56:46|lchen@corp.com|192.168.2.181|https://zoom.us/|Reference and Research|Allowed|3827|35887|POST|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||105
+2024-06-10 10:57:04|kpatel@corp.com|192.168.3.64|https://linkedin.com/page|Reference and Research|Allowed|662|2907|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||676
+2024-06-10 10:57:10|lchen@corp.com|192.168.2.59|https://zoom.us/docs|Shopping|Allowed|4017|67317|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||521
+2024-06-10 10:57:44|kpatel@corp.com|192.168.3.33|https://github.com/repo|Reference and Research|Allowed|3404|44185|GET|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||456
+2024-06-10 10:59:37|jsmith@corp.com|192.168.2.176|https://docker.com/repo|Software/Technology|Allowed|2974|37280|GET|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||322
+2024-06-10 11:03:10|kpatel@corp.com|192.168.1.78|https://slack.com/api/data|Business and Economy|Allowed|268|77705|POST|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||658
+2024-06-10 11:03:18|bwilson@corp.com|192.168.5.109|https://npmjs.com/|Shopping|Allowed|2283|15018|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||418
+2024-06-10 11:03:32|amartinez@corp.com|192.168.2.119|https://pypi.org/docs|News and Media|Allowed|1518|40926|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||604
+2024-06-10 11:03:49|jsmith@corp.com|192.168.4.193|https://kubernetes.io/repo|Reference and Research|Allowed|2375|72649|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||517
+2024-06-10 11:04:58|kpatel@corp.com|192.168.3.86|https://google.com/repo|Business and Economy|Allowed|2886|3402|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||611
+2024-06-10 11:05:00|bwilson@corp.com|192.168.2.44|http://malware-c2.ru/beacon|Malicious URLs|Blocked|512|0|GET|403|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36|Win32.Trojan.Agent|20
+2024-06-10 11:05:11|emorgan@corp.com|192.168.2.63|https://npmjs.com/page|Financial Services|Allowed|4107|6942|GET|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||571
+2024-06-10 11:06:49|emorgan@corp.com|192.168.3.115|https://pypi.org/page|Health|Allowed|1834|2782|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||296
+2024-06-10 11:06:56|jsmith@corp.com|192.168.2.162|https://github.com/|Financial Services|Allowed|2278|36962|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||152
+2024-06-10 11:09:19|bwilson@corp.com|192.168.3.144|https://confluence.atlassian.com/page|Reference and Research|Allowed|2869|45828|GET|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||223
+2024-06-10 11:10:22|kpatel@corp.com|192.168.2.15|https://npmjs.com/|Education|Allowed|4637|69629|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||733
+2024-06-10 11:10:25|kpatel@corp.com|192.168.4.76|https://confluence.atlassian.com/api/data|Shopping|Allowed|3187|21927|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||759
+2024-06-10 11:11:15|lchen@corp.com|192.168.2.167|https://google.com/page|Health|Allowed|1358|8362|POST|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||764
+2024-06-10 11:12:29|bwilson@corp.com|192.168.5.185|https://jira.atlassian.com/repo|Health|Allowed|1701|59264|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||370
+2024-06-10 11:16:51|bwilson@corp.com|192.168.1.100|https://aws.amazon.com/page|Software/Technology|Allowed|2604|22909|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||652
+2024-06-10 11:18:06|amartinez@corp.com|192.168.2.102|https://aws.amazon.com/|Reference and Research|Allowed|3589|24544|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||583
+2024-06-10 11:18:41|lchen@corp.com|192.168.1.170|https://linkedin.com/repo|Reference and Research|Allowed|410|35297|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||246
+2024-06-10 11:19:31|lchen@corp.com|192.168.3.160|https://aws.amazon.com/page|Social Networking|Allowed|2264|52673|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||356
+2024-06-10 11:21:25|amartinez@corp.com|192.168.4.162|https://confluence.atlassian.com/page|Shopping|Allowed|3818|51204|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||161
+2024-06-10 11:25:44|bwilson@corp.com|192.168.5.183|https://stackoverflow.com/repo|Business and Economy|Allowed|3293|71582|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||109
+2024-06-10 11:26:00|jsmith@corp.com|192.168.3.74|https://linkedin.com/repo|Shopping|Allowed|3662|45541|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||395
+2024-06-10 11:26:19|jsmith@corp.com|192.168.3.103|https://kubernetes.io/api/data|Health|Allowed|2854|9768|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||64
+2024-06-10 11:29:09|lchen@corp.com|192.168.3.76|https://docker.com/api/data|Reference and Research|Allowed|4370|50718|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||576
+2024-06-10 11:30:38|lchen@corp.com|192.168.5.175|https://confluence.atlassian.com/docs|Business and Economy|Allowed|569|40967|GET|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||147
+2024-06-10 11:31:05|jsmith@corp.com|192.168.2.60|https://github.com/api/data|Business and Economy|Allowed|3146|9661|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||246
+2024-06-10 11:33:58|amartinez@corp.com|192.168.3.83|https://pypi.org/api/data|Reference and Research|Allowed|2956|21958|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||397
+2024-06-10 11:34:17|lchen@corp.com|192.168.1.144|https://zoom.us/api/data|Software/Technology|Allowed|1863|78432|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||88
+2024-06-10 11:34:35|amartinez@corp.com|192.168.1.105|https://stackoverflow.com/api/data|Software/Technology|Allowed|4812|32105|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||351
+2024-06-10 11:36:00|bwilson@corp.com|192.168.3.33|https://github.com/page|Reference and Research|Allowed|2447|20186|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||598
+2024-06-10 11:37:25|emorgan@corp.com|192.168.2.169|https://docker.com/|Reference and Research|Allowed|4238|8173|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||797
+2024-06-10 11:38:05|lchen@corp.com|192.168.4.50|https://google.com/docs|Reference and Research|Allowed|889|43408|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||203
+2024-06-10 11:38:06|bwilson@corp.com|192.168.3.40|https://docker.com/api/data|Shopping|Allowed|3779|45279|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||642
+2024-06-10 11:39:49|jsmith@corp.com|192.168.3.47|https://jira.atlassian.com/api/data|Reference and Research|Allowed|2909|43990|POST|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||689
+2024-06-10 11:41:02|emorgan@corp.com|192.168.2.189|https://docker.com/docs|Health|Allowed|4678|64508|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||633
+2024-06-10 11:42:11|bwilson@corp.com|192.168.5.105|https://docs.microsoft.com/docs|Health|Allowed|1485|52851|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||622
+2024-06-10 11:42:17|amartinez@corp.com|192.168.5.132|https://aws.amazon.com/page|Financial Services|Allowed|2199|70298|GET|304|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||86
+2024-06-10 11:43:17|kpatel@corp.com|192.168.4.143|https://pypi.org/docs|Health|Allowed|2429|19592|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||140
+2024-06-10 11:43:55|kpatel@corp.com|192.168.2.120|https://linkedin.com/page|News and Media|Allowed|3756|60301|GET|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||357
+2024-06-10 11:45:18|lchen@corp.com|192.168.5.106|https://docs.microsoft.com/api/data|Software/Technology|Allowed|4846|26467|GET|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||653
+2024-06-10 11:45:35|lchen@corp.com|192.168.4.112|https://docs.microsoft.com/repo|Financial Services|Allowed|980|18303|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||784
+2024-06-10 11:47:00|jsmith@corp.com|192.168.3.78|https://aws.amazon.com/|Health|Allowed|746|36172|POST|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||321
+2024-06-10 11:47:10|lchen@corp.com|192.168.5.109|https://docker.com/|News and Media|Allowed|4874|39037|GET|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||293
+2024-06-10 11:47:19|amartinez@corp.com|192.168.2.147|https://kubernetes.io/|Health|Allowed|1360|28666|GET|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||541
+2024-06-10 11:47:59|jsmith@corp.com|192.168.2.145|https://zoom.us/repo|Financial Services|Allowed|890|39117|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||677
+2024-06-10 11:48:06|kpatel@corp.com|192.168.4.138|https://zoom.us/api/data|News and Media|Allowed|4326|72962|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||764
+2024-06-10 11:48:41|bwilson@corp.com|192.168.3.46|https://google.com/docs|Education|Allowed|1980|47025|POST|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||209
+2024-06-10 11:49:12|amartinez@corp.com|192.168.3.194|https://github.com/docs|Software/Technology|Allowed|3419|72318|POST|304|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||634
+2024-06-10 11:50:08|amartinez@corp.com|192.168.2.145|https://docker.com/api/data|Social Networking|Allowed|1318|33943|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||423
+2024-06-10 11:52:03|bwilson@corp.com|192.168.4.161|https://slack.com/|Reference and Research|Allowed|2643|6943|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||155
+2024-06-10 11:52:35|bwilson@corp.com|192.168.1.86|https://jira.atlassian.com/docs|Education|Allowed|347|47769|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||354
+2024-06-10 11:54:07|kpatel@corp.com|192.168.2.83|https://docs.microsoft.com/|Reference and Research|Allowed|345|42129|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||261
+2024-06-10 11:54:53|emorgan@corp.com|192.168.2.107|https://jira.atlassian.com/repo|Education|Allowed|535|47317|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||95
+2024-06-10 11:56:21|bwilson@corp.com|192.168.3.43|https://docs.microsoft.com/page|Financial Services|Allowed|4208|26533|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||163
+2024-06-10 11:56:37|amartinez@corp.com|192.168.5.11|https://zoom.us/|Reference and Research|Allowed|267|38402|POST|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||709
+2024-06-10 11:57:08|kpatel@corp.com|192.168.2.88|https://stackoverflow.com/api/data|Reference and Research|Allowed|1915|35192|GET|304|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||58
+2024-06-10 11:57:09|amartinez@corp.com|192.168.3.196|https://docker.com/docs|Education|Allowed|3343|56034|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||227
+2024-06-10 11:57:16|jsmith@corp.com|192.168.1.112|https://aws.amazon.com/page|Shopping|Allowed|2937|71088|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||763
+2024-06-10 11:57:59|emorgan@corp.com|192.168.3.17|https://google.com/docs|Social Networking|Allowed|1818|56456|GET|304|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||115
+2024-06-10 11:59:50|emorgan@corp.com|192.168.2.138|https://zoom.us/docs|Shopping|Allowed|537|66037|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||797
+2024-06-10 12:01:43|lchen@corp.com|192.168.5.61|https://zoom.us/repo|Financial Services|Allowed|2123|51138|POST|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||103
+2024-06-10 12:02:38|emorgan@corp.com|192.168.3.32|https://google.com/|Shopping|Allowed|1308|39919|GET|304|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||598
+2024-06-10 12:03:11|jsmith@corp.com|192.168.5.188|https://npmjs.com/api/data|News and Media|Allowed|1181|31153|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||313
+2024-06-10 12:03:16|lchen@corp.com|192.168.3.46|https://zoom.us/page|Business and Economy|Allowed|4003|65752|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||180
+2024-06-10 12:03:42|bwilson@corp.com|192.168.2.190|https://pypi.org/|Business and Economy|Allowed|2305|58971|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||275
+2024-06-10 12:04:58|kpatel@corp.com|192.168.1.87|https://slack.com/api/data|Software/Technology|Allowed|2058|35078|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||182
+2024-06-10 12:06:18|amartinez@corp.com|192.168.4.122|https://kubernetes.io/page|Software/Technology|Allowed|672|34063|GET|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||168
+2024-06-10 12:06:40|lchen@corp.com|192.168.3.79|https://pypi.org/repo|Business and Economy|Allowed|4635|47616|GET|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||171
+2024-06-10 12:07:45|amartinez@corp.com|192.168.2.152|https://confluence.atlassian.com/page|Shopping|Allowed|4683|39994|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||202
+2024-06-10 12:09:03|lchen@corp.com|192.168.5.151|https://npmjs.com/repo|Shopping|Allowed|4346|60523|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||719
+2024-06-10 12:09:21|amartinez@corp.com|192.168.2.152|https://jira.atlassian.com/repo|Shopping|Allowed|1875|52830|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||149
+2024-06-10 12:09:47|bwilson@corp.com|192.168.1.195|https://docs.microsoft.com/|Reference and Research|Allowed|1043|59248|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||62
+2024-06-10 12:10:02|kpatel@corp.com|192.168.5.43|https://zoom.us/api/data|Financial Services|Allowed|4805|49688|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||476
+2024-06-10 12:10:40|emorgan@corp.com|192.168.2.23|https://kubernetes.io/api/data|Financial Services|Allowed|2630|42469|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||132
+2024-06-10 12:10:49|bwilson@corp.com|192.168.4.200|https://docker.com/|Financial Services|Allowed|1247|75160|POST|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||368
+2024-06-10 12:11:04|lchen@corp.com|192.168.1.79|https://kubernetes.io/api/data|Reference and Research|Allowed|3841|66810|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||112
+2024-06-10 12:11:17|kpatel@corp.com|192.168.3.136|https://aws.amazon.com/docs|Business and Economy|Allowed|3790|44801|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||645
+2024-06-10 12:11:35|emorgan@corp.com|192.168.3.86|https://slack.com/repo|Shopping|Allowed|1081|58492|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||70
+2024-06-10 12:12:18|lchen@corp.com|192.168.2.103|https://docs.microsoft.com/|Business and Economy|Allowed|1861|61930|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||622
+2024-06-10 12:13:35|lchen@corp.com|192.168.3.18|https://aws.amazon.com/docs|Reference and Research|Allowed|3190|37713|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||279
+2024-06-10 12:14:05|emorgan@corp.com|192.168.3.37|https://npmjs.com/api/data|Education|Allowed|2759|13973|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||711
+2024-06-10 12:18:31|kpatel@corp.com|192.168.1.156|https://aws.amazon.com/docs|Education|Allowed|3159|38144|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||491
+2024-06-10 12:18:42|lchen@corp.com|192.168.5.174|https://zoom.us/repo|Business and Economy|Allowed|1133|13981|GET|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||624
+2024-06-10 12:18:46|emorgan@corp.com|192.168.4.79|https://aws.amazon.com/page|Financial Services|Allowed|776|44953|GET|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||659
+2024-06-10 12:19:20|emorgan@corp.com|192.168.2.65|https://npmjs.com/api/data|Shopping|Allowed|4455|28662|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||140
+2024-06-10 12:20:42|amartinez@corp.com|192.168.2.133|https://npmjs.com/page|Financial Services|Allowed|3330|33470|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||508
+2024-06-10 12:20:46|kpatel@corp.com|192.168.1.176|https://jira.atlassian.com/|Financial Services|Allowed|2862|45163|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||370
+2024-06-10 12:21:04|emorgan@corp.com|192.168.3.39|https://npmjs.com/api/data|Shopping|Allowed|1712|61236|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||529
+2024-06-10 12:21:26|bwilson@corp.com|192.168.1.51|https://google.com/api/data|Financial Services|Allowed|4587|75283|GET|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||302
+2024-06-10 12:23:04|lchen@corp.com|192.168.2.92|https://kubernetes.io/api/data|Health|Allowed|2698|56872|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||126
+2024-06-10 12:25:51|bwilson@corp.com|192.168.3.124|https://stackoverflow.com/api/data|Software/Technology|Allowed|4360|10756|POST|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||262
+2024-06-10 12:26:11|kpatel@corp.com|192.168.1.96|https://kubernetes.io/docs|Social Networking|Allowed|2618|27473|GET|304|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||709
+2024-06-10 12:26:51|bwilson@corp.com|192.168.3.10|https://zoom.us/|Health|Allowed|1831|52092|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||748
+2024-06-10 12:28:37|kpatel@corp.com|192.168.1.32|https://docker.com/docs|Shopping|Allowed|2792|52320|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||584
+2024-06-10 12:29:06|amartinez@corp.com|192.168.4.191|https://stackoverflow.com/|Software/Technology|Allowed|2716|57496|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||218
+2024-06-10 12:30:51|jsmith@corp.com|192.168.3.178|https://jira.atlassian.com/docs|Shopping|Allowed|3336|47798|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||58
+2024-06-10 12:31:35|jsmith@corp.com|192.168.4.99|https://npmjs.com/repo|Health|Allowed|676|72350|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||795
+2024-06-10 12:33:18|lchen@corp.com|192.168.4.80|https://confluence.atlassian.com/api/data|Shopping|Allowed|2106|3082|GET|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||298
+2024-06-10 12:34:04|jsmith@corp.com|192.168.1.83|https://zoom.us/repo|Business and Economy|Allowed|300|2840|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||549
+2024-06-10 12:35:36|amartinez@corp.com|192.168.1.49|https://jira.atlassian.com/api/data|Business and Economy|Allowed|3920|11998|GET|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||461
+2024-06-10 12:38:08|lchen@corp.com|192.168.3.133|https://jira.atlassian.com/api/data|Education|Allowed|4039|70235|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||353
+2024-06-10 12:41:47|amartinez@corp.com|192.168.2.107|https://jira.atlassian.com/api/data|Social Networking|Allowed|2385|70917|POST|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||589
+2024-06-10 12:42:19|lchen@corp.com|192.168.3.31|https://aws.amazon.com/page|Software/Technology|Allowed|3734|39641|GET|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||53
+2024-06-10 12:42:35|jsmith@corp.com|192.168.3.95|https://aws.amazon.com/repo|Social Networking|Allowed|2342|20985|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||525
+2024-06-10 12:44:30|kpatel@corp.com|192.168.1.121|https://github.com/api/data|Software/Technology|Allowed|1980|19053|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||757
+2024-06-10 12:44:57|amartinez@corp.com|192.168.1.132|https://docs.microsoft.com/docs|Social Networking|Allowed|4165|56171|GET|304|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||146
+2024-06-10 12:45:14|lchen@corp.com|192.168.4.52|https://kubernetes.io/page|Financial Services|Allowed|3738|57317|GET|304|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||768
+2024-06-10 12:45:54|jsmith@corp.com|192.168.4.122|https://stackoverflow.com/docs|Health|Allowed|242|2486|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||164
+2024-06-10 12:47:05|lchen@corp.com|192.168.1.105|https://aws.amazon.com/|Health|Allowed|3639|79581|POST|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||255
+2024-06-10 12:47:58|amartinez@corp.com|192.168.3.155|https://linkedin.com/repo|Education|Allowed|1890|45262|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||176
+2024-06-10 12:49:24|lchen@corp.com|192.168.1.160|https://confluence.atlassian.com/|Reference and Research|Allowed|2188|70067|POST|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||370
+2024-06-10 12:50:15|bwilson@corp.com|192.168.5.70|https://zoom.us/repo|Health|Allowed|3758|43822|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||504
+2024-06-10 12:51:25|lchen@corp.com|192.168.2.154|https://confluence.atlassian.com/page|Health|Allowed|409|3107|GET|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||209
+2024-06-10 12:52:34|bwilson@corp.com|192.168.3.177|https://stackoverflow.com/docs|Education|Allowed|745|12724|GET|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||407
+2024-06-10 12:53:08|bwilson@corp.com|192.168.1.89|https://docker.com/docs|Business and Economy|Allowed|3982|7014|POST|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||302
+2024-06-10 12:54:00|jsmith@corp.com|192.168.4.24|https://kubernetes.io/repo|Shopping|Allowed|3598|28358|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||685
+2024-06-10 12:56:28|kpatel@corp.com|192.168.4.123|https://kubernetes.io/docs|Reference and Research|Allowed|4883|47919|GET|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||482
+2024-06-10 12:57:40|emorgan@corp.com|192.168.2.26|https://slack.com/page|Health|Allowed|1956|54192|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||242
+2024-06-10 12:58:07|emorgan@corp.com|192.168.4.68|https://zoom.us/api/data|Financial Services|Allowed|3750|68032|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||160
+2024-06-10 12:59:47|amartinez@corp.com|192.168.3.98|https://stackoverflow.com/repo|Education|Allowed|1836|67714|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||650
+2024-06-10 12:59:59|jsmith@corp.com|192.168.2.156|https://kubernetes.io/docs|Software/Technology|Allowed|1497|52762|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||673
+2024-06-10 13:01:14|bwilson@corp.com|192.168.5.26|https://aws.amazon.com/page|Business and Economy|Allowed|1512|14977|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||81
+2024-06-10 13:04:26|bwilson@corp.com|192.168.4.194|https://docker.com/docs|Shopping|Allowed|3473|36427|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||797
+2024-06-10 13:04:27|emorgan@corp.com|192.168.4.24|https://zoom.us/|Software/Technology|Allowed|2895|72957|GET|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||377
+2024-06-10 13:05:28|jsmith@corp.com|192.168.4.72|https://stackoverflow.com/page|Health|Allowed|2066|64161|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||83
+2024-06-10 13:10:54|emorgan@corp.com|192.168.2.120|https://docker.com/page|Software/Technology|Allowed|2088|63929|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||346
+2024-06-10 13:11:09|amartinez@corp.com|192.168.1.178|https://docker.com/docs|Financial Services|Allowed|1104|57860|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||289
+2024-06-10 13:12:50|jsmith@corp.com|192.168.2.68|https://linkedin.com/docs|Social Networking|Allowed|4870|24211|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||600
+2024-06-10 13:13:18|jsmith@corp.com|192.168.3.32|https://aws.amazon.com/api/data|Reference and Research|Allowed|3342|17345|POST|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||546
+2024-06-10 13:13:43|bwilson@corp.com|192.168.5.144|https://docs.microsoft.com/page|Business and Economy|Allowed|1903|71454|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||625
+2024-06-10 13:13:46|lchen@corp.com|192.168.5.49|https://npmjs.com/|Software/Technology|Allowed|2314|60732|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||261
+2024-06-10 13:17:55|emorgan@corp.com|192.168.2.59|https://confluence.atlassian.com/docs|Health|Allowed|406|43028|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||255
+2024-06-10 13:19:23|bwilson@corp.com|192.168.1.175|https://stackoverflow.com/repo|Software/Technology|Allowed|2502|37582|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||667
+2024-06-10 13:20:43|amartinez@corp.com|192.168.5.118|https://slack.com/docs|Reference and Research|Allowed|1138|56592|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||608
+2024-06-10 13:21:12|kpatel@corp.com|192.168.4.20|https://npmjs.com/|News and Media|Allowed|4672|8510|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||225
+2024-06-10 13:21:27|kpatel@corp.com|192.168.1.117|https://jira.atlassian.com/page|Shopping|Allowed|490|62585|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||81
+2024-06-10 13:21:56|emorgan@corp.com|192.168.2.101|https://slack.com/|Software/Technology|Allowed|4586|25065|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||358
+2024-06-10 13:21:59|jsmith@corp.com|192.168.2.61|https://linkedin.com/docs|Social Networking|Allowed|3423|27910|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||552
+2024-06-10 13:22:59|bwilson@corp.com|192.168.2.159|https://confluence.atlassian.com/api/data|Software/Technology|Allowed|2205|19065|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||654
+2024-06-10 13:24:13|kpatel@corp.com|192.168.4.49|https://docs.microsoft.com/docs|Health|Allowed|392|20123|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||539
+2024-06-10 13:24:16|lchen@corp.com|192.168.4.32|https://linkedin.com/docs|Financial Services|Allowed|3592|72936|GET|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||176
+2024-06-10 13:24:26|kpatel@corp.com|192.168.1.167|https://linkedin.com/|Education|Allowed|3379|18742|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||222
+2024-06-10 13:24:55|lchen@corp.com|192.168.1.145|https://github.com/docs|Business and Economy|Allowed|2698|67643|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||328
+2024-06-10 13:25:56|emorgan@corp.com|192.168.1.33|https://linkedin.com/page|Software/Technology|Allowed|1738|29283|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||441
+2024-06-10 13:26:19|jsmith@corp.com|192.168.5.188|https://linkedin.com/api/data|Business and Economy|Allowed|2973|47235|GET|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||604
+2024-06-10 13:28:36|lchen@corp.com|192.168.5.167|https://slack.com/api/data|Reference and Research|Allowed|1746|57351|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||633
+2024-06-10 13:28:43|amartinez@corp.com|192.168.2.130|https://npmjs.com/repo|Business and Economy|Allowed|1624|70095|GET|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||727
+2024-06-10 13:28:45|amartinez@corp.com|192.168.2.52|https://npmjs.com/docs|Social Networking|Allowed|3241|61757|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||711
+2024-06-10 13:29:45|kpatel@corp.com|192.168.3.164|https://google.com/api/data|Business and Economy|Allowed|759|73485|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||477
+2024-06-10 13:30:52|amartinez@corp.com|192.168.1.92|https://github.com/page|Social Networking|Allowed|911|56025|GET|304|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||670
+2024-06-10 13:31:02|bwilson@corp.com|192.168.5.21|https://jira.atlassian.com/page|Reference and Research|Allowed|4508|62333|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||242
+2024-06-10 13:31:27|amartinez@corp.com|192.168.2.174|https://stackoverflow.com/docs|News and Media|Allowed|1767|30930|POST|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||693
+2024-06-10 13:32:23|bwilson@corp.com|192.168.5.116|https://linkedin.com/page|News and Media|Allowed|4247|11094|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||431
+2024-06-10 13:33:20|kpatel@corp.com|192.168.1.50|https://aws.amazon.com/repo|Shopping|Allowed|3457|59659|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||144
+2024-06-10 13:35:05|bwilson@corp.com|192.168.2.157|https://npmjs.com/page|Shopping|Allowed|1731|66002|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||114
+2024-06-10 13:35:05|lchen@corp.com|192.168.2.37|https://zoom.us/docs|Shopping|Allowed|3146|33184|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||624
+2024-06-10 13:35:17|jsmith@corp.com|192.168.1.126|https://linkedin.com/page|News and Media|Allowed|1898|41566|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||326
+2024-06-10 13:35:28|amartinez@corp.com|192.168.2.145|https://kubernetes.io/docs|Software/Technology|Allowed|3614|76684|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||116
+2024-06-10 13:36:13|emorgan@corp.com|192.168.1.165|https://stackoverflow.com/|Social Networking|Allowed|4617|13287|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||479
+2024-06-10 13:36:22|jsmith@corp.com|192.168.5.146|https://stackoverflow.com/docs|Education|Allowed|1710|66760|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||108
+2024-06-10 13:38:34|jsmith@corp.com|192.168.5.64|https://docker.com/|News and Media|Allowed|1475|75914|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||417
+2024-06-10 13:39:08|kpatel@corp.com|192.168.1.68|https://npmjs.com/page|Health|Allowed|3397|60748|POST|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||643
+2024-06-10 13:39:40|amartinez@corp.com|192.168.5.178|https://docs.microsoft.com/page|Health|Allowed|2129|77489|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||717
+2024-06-10 13:40:08|kpatel@corp.com|192.168.3.149|https://docker.com/|Reference and Research|Allowed|1140|70117|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||795
+2024-06-10 13:40:31|lchen@corp.com|192.168.4.178|https://confluence.atlassian.com/api/data|Shopping|Allowed|4545|26790|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||414
+2024-06-10 13:40:50|amartinez@corp.com|192.168.4.108|https://slack.com/|Software/Technology|Allowed|1974|42219|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||638
+2024-06-10 13:41:34|kpatel@corp.com|192.168.2.54|https://zoom.us/|Software/Technology|Allowed|2811|28498|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||522
+2024-06-10 13:42:39|kpatel@corp.com|192.168.1.60|https://aws.amazon.com/page|Financial Services|Allowed|865|58519|GET|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||681
+2024-06-10 13:43:19|bwilson@corp.com|192.168.5.83|https://aws.amazon.com/page|Software/Technology|Allowed|4658|74521|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||436
+2024-06-10 13:43:32|jsmith@corp.com|192.168.4.132|https://kubernetes.io/repo|Reference and Research|Allowed|4538|52384|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||437
+2024-06-10 13:43:38|kpatel@corp.com|192.168.5.106|https://zoom.us/api/data|Shopping|Allowed|3011|71970|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||647
+2024-06-10 13:44:45|jsmith@corp.com|192.168.1.183|https://aws.amazon.com/|Reference and Research|Allowed|1091|19381|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||306
+2024-06-10 13:45:03|emorgan@corp.com|192.168.3.150|https://slack.com/repo|Education|Allowed|911|20271|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||108
+2024-06-10 13:46:04|jsmith@corp.com|192.168.2.108|https://slack.com/api/data|Financial Services|Allowed|3778|2197|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||240
+2024-06-10 13:46:08|emorgan@corp.com|192.168.5.140|https://stackoverflow.com/api/data|Education|Allowed|1730|46165|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||337
+2024-06-10 13:46:41|kpatel@corp.com|192.168.3.19|https://slack.com/api/data|Health|Allowed|361|39154|POST|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||495
+2024-06-10 13:47:10|kpatel@corp.com|192.168.5.197|https://npmjs.com/docs|Health|Allowed|4663|24274|POST|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||677
+2024-06-10 13:47:27|amartinez@corp.com|192.168.4.159|https://kubernetes.io/|Reference and Research|Allowed|989|58948|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||393
+2024-06-10 13:48:19|lchen@corp.com|192.168.1.78|https://stackoverflow.com/docs|Education|Allowed|3435|19096|POST|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||619
+2024-06-10 13:48:31|bwilson@corp.com|192.168.5.130|https://docker.com/api/data|News and Media|Allowed|3905|73566|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||638
+2024-06-10 13:49:19|emorgan@corp.com|192.168.2.112|https://zoom.us/api/data|Business and Economy|Allowed|2023|54348|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||63
+2024-06-10 13:50:38|kpatel@corp.com|192.168.1.123|https://zoom.us/api/data|Software/Technology|Allowed|4951|60270|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||389
+2024-06-10 13:51:29|bwilson@corp.com|192.168.3.99|https://npmjs.com/|Social Networking|Allowed|1224|77053|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||268
+2024-06-10 13:52:17|emorgan@corp.com|192.168.1.69|https://kubernetes.io/api/data|Software/Technology|Allowed|917|17655|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||153
+2024-06-10 13:52:33|kpatel@corp.com|192.168.4.116|https://kubernetes.io/docs|Shopping|Allowed|339|2236|GET|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||50
+2024-06-10 13:54:01|emorgan@corp.com|192.168.5.120|https://npmjs.com/|Education|Allowed|1063|26095|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||553
+2024-06-10 13:54:48|kpatel@corp.com|192.168.1.25|https://docs.microsoft.com/repo|Education|Allowed|2845|57109|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||419
+2024-06-10 13:54:59|emorgan@corp.com|192.168.2.60|https://stackoverflow.com/docs|Shopping|Allowed|584|32340|POST|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||369
+2024-06-10 13:56:26|bwilson@corp.com|192.168.1.66|https://jira.atlassian.com/docs|Social Networking|Allowed|1139|22225|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||265
+2024-06-10 13:56:54|bwilson@corp.com|192.168.3.25|https://docker.com/page|Business and Economy|Allowed|1821|32795|POST|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||90
+2024-06-10 13:58:28|amartinez@corp.com|192.168.3.158|https://zoom.us/api/data|Social Networking|Allowed|1872|36100|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||272
+2024-06-10 13:59:44|kpatel@corp.com|192.168.4.153|https://google.com/page|Reference and Research|Allowed|625|6567|GET|304|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||187
+2024-06-10 14:00:49|emorgan@corp.com|192.168.4.162|https://kubernetes.io/docs|Financial Services|Allowed|3137|23764|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||68
+2024-06-10 14:04:05|bwilson@corp.com|192.168.2.110|https://linkedin.com/docs|Financial Services|Allowed|1500|24519|POST|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||293
+2024-06-10 14:04:32|amartinez@corp.com|192.168.3.21|https://google.com/api/data|Business and Economy|Allowed|2489|54868|GET|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||747
+2024-06-10 14:05:51|jsmith@corp.com|192.168.1.185|https://jira.atlassian.com/repo|Software/Technology|Allowed|3208|22967|POST|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||504
+2024-06-10 14:08:15|bwilson@corp.com|192.168.1.45|https://docs.microsoft.com/page|Shopping|Allowed|2326|24650|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||710
+2024-06-10 14:08:37|bwilson@corp.com|192.168.5.18|https://zoom.us/repo|Shopping|Allowed|1531|5204|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||785
+2024-06-10 14:09:04|jsmith@corp.com|192.168.2.145|https://npmjs.com/|Business and Economy|Allowed|2218|59870|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||219
+2024-06-10 14:11:40|kpatel@corp.com|192.168.3.194|https://zoom.us/repo|Health|Allowed|3770|21895|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||486
+2024-06-10 14:14:27|kpatel@corp.com|192.168.3.142|https://aws.amazon.com/|Reference and Research|Allowed|3792|40268|GET|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||62
+2024-06-10 14:15:18|jsmith@corp.com|192.168.1.103|https://confluence.atlassian.com/api/data|News and Media|Allowed|1567|39058|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||374
+2024-06-10 14:15:41|lchen@corp.com|192.168.2.186|https://confluence.atlassian.com/docs|Business and Economy|Allowed|1331|20207|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||687
+2024-06-10 14:16:00|amartinez@corp.com|192.168.3.104|https://npmjs.com/repo|Education|Allowed|235|15991|GET|304|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||278
+2024-06-10 14:17:23|jsmith@corp.com|192.168.1.39|https://docs.microsoft.com/api/data|Software/Technology|Allowed|2883|16702|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||662
+2024-06-10 14:18:28|bwilson@corp.com|192.168.1.196|https://zoom.us/api/data|Shopping|Allowed|543|25434|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||377
+2024-06-10 14:18:34|jsmith@corp.com|192.168.1.74|https://linkedin.com/|Shopping|Allowed|1946|11864|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||726
+2024-06-10 14:19:12|kpatel@corp.com|192.168.3.192|https://npmjs.com/|Health|Allowed|3925|44820|GET|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||600
+2024-06-10 14:19:41|lchen@corp.com|192.168.5.18|https://github.com/api/data|Shopping|Allowed|4392|48014|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||477
+2024-06-10 14:19:52|kpatel@corp.com|192.168.3.94|https://slack.com/page|Health|Allowed|3757|67040|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||147
+2024-06-10 14:21:10|emorgan@corp.com|192.168.2.150|https://docker.com/page|Health|Allowed|1100|44870|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||145
+2024-06-10 14:22:00|emorgan@corp.com|192.168.3.77|https://transfer.sh/upload/data.zip|Unknown|Allowed|26214400|1024|POST|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||12000
+2024-06-10 14:22:12|emorgan@corp.com|192.168.5.107|https://stackoverflow.com/api/data|Health|Allowed|3212|78216|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||120
+2024-06-10 14:23:20|lchen@corp.com|192.168.2.140|https://zoom.us/docs|Social Networking|Allowed|4368|73131|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||494
+2024-06-10 14:23:29|kpatel@corp.com|192.168.4.36|https://linkedin.com/docs|Health|Allowed|1736|56107|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||400
+2024-06-10 14:24:57|bwilson@corp.com|192.168.2.17|https://zoom.us/repo|Business and Economy|Allowed|1051|26334|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||275
+2024-06-10 14:25:11|lchen@corp.com|192.168.5.56|https://zoom.us/api/data|Software/Technology|Allowed|4723|12841|GET|304|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||432
+2024-06-10 14:25:39|amartinez@corp.com|192.168.4.31|https://kubernetes.io/api/data|Software/Technology|Allowed|1152|5223|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||370
+2024-06-10 14:26:21|amartinez@corp.com|192.168.4.63|https://npmjs.com/page|Reference and Research|Allowed|499|67137|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||652
+2024-06-10 14:26:30|lchen@corp.com|192.168.5.60|https://github.com/docs|Business and Economy|Allowed|3741|2769|GET|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||640
+2024-06-10 14:30:56|lchen@corp.com|192.168.5.176|https://kubernetes.io/repo|Shopping|Allowed|1337|8588|GET|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||196
+2024-06-10 14:32:11|kpatel@corp.com|192.168.3.41|https://npmjs.com/repo|Shopping|Allowed|2940|37539|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||452
+2024-06-10 14:34:05|amartinez@corp.com|192.168.5.136|https://slack.com/repo|Financial Services|Allowed|4704|54182|GET|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||324
+2024-06-10 14:34:30|lchen@corp.com|192.168.1.187|https://confluence.atlassian.com/docs|Software/Technology|Allowed|4467|71845|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||714
+2024-06-10 14:36:40|lchen@corp.com|192.168.4.153|https://google.com/docs|Financial Services|Allowed|4793|7224|POST|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||626
+2024-06-10 14:37:04|kpatel@corp.com|192.168.4.42|https://google.com/api/data|Health|Allowed|2375|5580|POST|404|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||710
+2024-06-10 14:37:13|amartinez@corp.com|192.168.4.180|https://aws.amazon.com/docs|News and Media|Allowed|814|76913|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||175
+2024-06-10 14:38:45|kpatel@corp.com|192.168.2.61|https://docs.microsoft.com/api/data|Social Networking|Allowed|2795|45223|POST|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||179
+2024-06-10 14:40:56|jsmith@corp.com|192.168.1.33|https://kubernetes.io/|Education|Allowed|1703|30471|POST|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||82
+2024-06-10 14:41:09|lchen@corp.com|192.168.2.59|https://docker.com/repo|News and Media|Allowed|3411|23323|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||580
+2024-06-10 14:41:41|emorgan@corp.com|192.168.5.45|https://kubernetes.io/page|Software/Technology|Allowed|1731|36832|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||53
+2024-06-10 14:43:06|bwilson@corp.com|192.168.1.64|https://slack.com/|Business and Economy|Allowed|3735|74046|POST|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||191
+2024-06-10 14:43:17|emorgan@corp.com|192.168.4.73|https://google.com/api/data|News and Media|Allowed|1488|59707|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||293
+2024-06-10 14:45:23|lchen@corp.com|192.168.3.75|https://slack.com/page|Education|Allowed|1030|9320|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||770
+2024-06-10 14:45:44|emorgan@corp.com|192.168.5.180|https://docs.microsoft.com/api/data|News and Media|Allowed|2494|24939|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||675
+2024-06-10 14:45:50|emorgan@corp.com|192.168.5.81|https://confluence.atlassian.com/|Shopping|Allowed|3752|39536|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||329
+2024-06-10 14:45:56|amartinez@corp.com|192.168.1.124|https://confluence.atlassian.com/repo|Health|Allowed|2153|11483|POST|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||655
+2024-06-10 14:47:16|lchen@corp.com|192.168.5.105|https://zoom.us/repo|Software/Technology|Allowed|1244|35560|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||765
+2024-06-10 14:47:42|jsmith@corp.com|192.168.4.131|https://jira.atlassian.com/repo|Software/Technology|Allowed|1982|51031|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||416
+2024-06-10 14:47:44|bwilson@corp.com|192.168.1.32|https://docs.microsoft.com/|Social Networking|Allowed|681|33920|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||468
+2024-06-10 14:47:47|lchen@corp.com|192.168.1.13|https://jira.atlassian.com/page|Health|Allowed|1398|46917|POST|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||432
+2024-06-10 14:48:43|lchen@corp.com|192.168.3.22|https://jira.atlassian.com/page|Shopping|Allowed|996|55077|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||517
+2024-06-10 14:49:29|lchen@corp.com|192.168.1.182|https://docker.com/page|Shopping|Allowed|329|48589|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||419
+2024-06-10 14:50:11|lchen@corp.com|192.168.3.52|https://jira.atlassian.com/repo|Business and Economy|Allowed|242|71897|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||798
+2024-06-10 14:50:55|bwilson@corp.com|192.168.1.118|https://github.com/api/data|Education|Allowed|3478|24152|GET|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||423
+2024-06-10 14:51:22|kpatel@corp.com|192.168.2.182|https://zoom.us/page|Reference and Research|Allowed|3037|26153|GET|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||728
+2024-06-10 14:52:19|jsmith@corp.com|192.168.2.150|https://github.com/docs|Reference and Research|Allowed|2582|64430|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||223
+2024-06-10 14:52:36|emorgan@corp.com|192.168.3.196|https://docs.microsoft.com/docs|Shopping|Allowed|1898|58732|POST|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||312
+2024-06-10 14:53:22|jsmith@corp.com|192.168.2.92|https://aws.amazon.com/api/data|Business and Economy|Allowed|3569|54616|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||201
+2024-06-10 14:53:55|emorgan@corp.com|192.168.1.54|https://confluence.atlassian.com/page|Shopping|Allowed|2473|51507|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||588
+2024-06-10 14:53:56|jsmith@corp.com|192.168.4.92|https://pypi.org/api/data|Health|Allowed|2945|63349|GET|304|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||499
+2024-06-10 14:54:09|bwilson@corp.com|192.168.4.122|https://aws.amazon.com/page|Shopping|Allowed|3586|24268|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||542
+2024-06-10 14:54:34|lchen@corp.com|192.168.4.59|https://pypi.org/repo|Software/Technology|Allowed|585|21695|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||481
+2024-06-10 14:55:29|jsmith@corp.com|192.168.1.143|https://kubernetes.io/docs|Social Networking|Allowed|3627|9541|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||779
+2024-06-10 14:58:12|bwilson@corp.com|192.168.2.157|https://pypi.org/|Social Networking|Allowed|3741|34008|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||339
+2024-06-10 14:58:49|emorgan@corp.com|192.168.3.24|https://google.com/|Reference and Research|Allowed|2492|17725|POST|301|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||370
+2024-06-10 14:59:53|amartinez@corp.com|192.168.5.199|https://npmjs.com/|Shopping|Allowed|821|21876|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||314
+2024-06-10 15:00:22|amartinez@corp.com|192.168.5.41|https://npmjs.com/repo|Health|Allowed|4733|37071|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||414
+2024-06-10 15:00:38|amartinez@corp.com|192.168.2.67|https://kubernetes.io/api/data|Shopping|Allowed|2513|19506|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||350
+2024-06-10 15:01:54|kpatel@corp.com|192.168.3.96|https://kubernetes.io/repo|Business and Economy|Allowed|1083|22442|POST|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||151
+2024-06-10 15:02:05|bwilson@corp.com|192.168.3.23|https://slack.com/|Software/Technology|Allowed|599|76082|POST|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||67
+2024-06-10 15:02:39|jsmith@corp.com|192.168.1.196|https://npmjs.com/|Shopping|Allowed|2443|54746|GET|404|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||195
+2024-06-10 15:03:42|kpatel@corp.com|192.168.3.54|https://slack.com/|Financial Services|Allowed|4334|17823|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||742
+2024-06-10 15:05:14|emorgan@corp.com|192.168.5.48|https://npmjs.com/|Reference and Research|Allowed|302|30392|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||617
+2024-06-10 15:06:50|bwilson@corp.com|192.168.2.192|https://zoom.us/docs|Education|Allowed|4179|73045|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||408
+2024-06-10 15:07:41|kpatel@corp.com|192.168.5.138|https://pypi.org/api/data|Financial Services|Allowed|2398|67490|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||145
+2024-06-10 15:08:05|amartinez@corp.com|192.168.4.179|https://docker.com/docs|Education|Allowed|4329|39561|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||755
+2024-06-10 15:09:01|bwilson@corp.com|192.168.4.48|https://zoom.us/|Shopping|Allowed|1260|34567|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||408
+2024-06-10 15:12:22|emorgan@corp.com|192.168.5.24|https://jira.atlassian.com/page|Business and Economy|Allowed|3695|32764|GET|304|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||313
+2024-06-10 15:12:23|amartinez@corp.com|192.168.3.102|https://github.com/api/data|Social Networking|Allowed|1508|56361|GET|304|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||552
+2024-06-10 15:12:56|jsmith@corp.com|192.168.1.87|https://github.com/repo|Social Networking|Allowed|3389|76793|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||492
+2024-06-10 15:14:00|kpatel@corp.com|192.168.4.197|https://linkedin.com/api/data|Social Networking|Allowed|2343|41062|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||689
+2024-06-10 15:15:39|bwilson@corp.com|192.168.5.129|https://google.com/docs|Financial Services|Allowed|2045|26569|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||293
+2024-06-10 15:17:32|bwilson@corp.com|192.168.4.131|https://kubernetes.io/|Business and Economy|Allowed|846|31038|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||147
+2024-06-10 15:18:47|amartinez@corp.com|192.168.3.173|https://slack.com/api/data|Education|Allowed|4246|24718|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||455
+2024-06-10 15:19:12|lchen@corp.com|192.168.5.110|https://stackoverflow.com/api/data|Education|Allowed|1708|15441|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||583
+2024-06-10 15:19:43|amartinez@corp.com|192.168.1.185|https://docker.com/api/data|News and Media|Allowed|4160|9552|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||740
+2024-06-10 15:20:44|bwilson@corp.com|192.168.2.34|https://stackoverflow.com/|Social Networking|Allowed|1225|70203|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||458
+2024-06-10 15:21:20|bwilson@corp.com|192.168.4.197|https://docs.microsoft.com/page|Health|Allowed|4676|40390|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||688
+2024-06-10 15:21:39|kpatel@corp.com|192.168.1.186|https://zoom.us/|Health|Allowed|4497|63406|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||704
+2024-06-10 15:22:57|bwilson@corp.com|192.168.4.90|https://npmjs.com/|News and Media|Allowed|4100|66122|POST|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||117
+2024-06-10 15:23:22|bwilson@corp.com|192.168.2.69|https://pypi.org/|Financial Services|Allowed|4909|78564|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||72
+2024-06-10 15:23:57|bwilson@corp.com|192.168.4.82|https://aws.amazon.com/page|Business and Economy|Allowed|4114|32348|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||403
+2024-06-10 15:27:02|lchen@corp.com|192.168.3.118|https://docker.com/api/data|Education|Allowed|4835|2004|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||731
+2024-06-10 15:27:37|bwilson@corp.com|192.168.3.75|https://linkedin.com/page|Software/Technology|Allowed|1933|72055|GET|301|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||504
+2024-06-10 15:29:34|jsmith@corp.com|192.168.3.181|https://pypi.org/docs|News and Media|Allowed|3489|70957|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||225
+2024-06-10 15:31:29|amartinez@corp.com|192.168.3.97|https://slack.com/docs|Reference and Research|Allowed|2681|78856|GET|304|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||338
+2024-06-10 15:32:27|emorgan@corp.com|192.168.4.127|https://docs.microsoft.com/|Business and Economy|Allowed|1126|58012|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||92
+2024-06-10 15:32:36|emorgan@corp.com|192.168.4.138|https://linkedin.com/page|Social Networking|Allowed|1673|8061|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||565
+2024-06-10 15:34:51|jsmith@corp.com|192.168.3.22|https://slack.com/page|Financial Services|Allowed|4231|77430|GET|304|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||439
+2024-06-10 15:34:56|bwilson@corp.com|192.168.2.138|https://docker.com/repo|Software/Technology|Allowed|2655|45919|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||116
+2024-06-10 15:38:10|lchen@corp.com|192.168.2.60|https://npmjs.com/docs|Financial Services|Allowed|1130|8335|POST|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||480
+2024-06-10 15:40:20|emorgan@corp.com|192.168.1.183|https://npmjs.com/repo|Reference and Research|Allowed|325|54897|GET|404|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||323
+2024-06-10 15:44:00|amartinez@corp.com|192.168.4.22|https://x93kqzpwlm.top/gate.php|Unknown|Allowed|256|128|POST|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||300
+2024-06-10 15:45:27|emorgan@corp.com|192.168.2.72|https://slack.com/api/data|Business and Economy|Allowed|909|3306|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||508
+2024-06-10 15:46:08|jsmith@corp.com|192.168.1.132|https://slack.com/repo|Financial Services|Allowed|3675|77147|GET|304|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||61
+2024-06-10 15:49:14|emorgan@corp.com|192.168.3.145|https://linkedin.com/page|News and Media|Allowed|2191|39482|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||670
+2024-06-10 15:50:01|kpatel@corp.com|192.168.3.107|https://docs.microsoft.com/page|Shopping|Allowed|3362|17279|GET|200|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||393
+2024-06-10 15:50:34|jsmith@corp.com|192.168.2.12|https://pypi.org/repo|Shopping|Allowed|2464|4134|GET|304|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36||203
+2024-06-10 15:53:48|lchen@corp.com|192.168.3.136|https://linkedin.com/|Shopping|Allowed|2016|30559|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||251
+2024-06-10 15:54:35|lchen@corp.com|192.168.3.144|https://docker.com/page|Software/Technology|Allowed|4619|2828|GET|301|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||187
+2024-06-10 15:55:37|amartinez@corp.com|192.168.1.194|https://slack.com/|Social Networking|Allowed|2063|79427|GET|200|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||101
+2024-06-10 15:56:39|jsmith@corp.com|192.168.2.81|https://google.com/api/data|Financial Services|Allowed|2391|31024|GET|200|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36||782
+2024-06-10 15:58:08|lchen@corp.com|192.168.4.71|https://kubernetes.io/|Shopping|Allowed|4501|72040|GET|304|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36||519
