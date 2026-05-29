@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { colors } from "../theme";
 
 type Entry = {
   id: string;
@@ -16,56 +16,100 @@ type Entry = {
   is_anomalous: boolean;
 };
 
+export type LogFilters = {
+  username: string;
+  src_ip: string;
+  dst_hostname: string;
+  category: string;
+  action: string;
+  response_code: string;
+  threat_name: string;
+};
+
+export const EMPTY_LOG_FILTERS: LogFilters = {
+  username: "", src_ip: "", dst_hostname: "",
+  category: "", action: "", response_code: "", threat_name: "",
+};
+
 type Props = {
   entries: Entry[];
   totalPages: number;
   currentPage: number;
+  totalEntries: number;
+  filters: LogFilters;
+  onFilterChange: (filters: LogFilters) => void;
   onPageChange: (page: number) => void;
-  onFilter: (filters: { action?: string; category?: string; username?: string }) => void;
 };
 
-export default function LogTable({ entries, totalPages, currentPage, onPageChange, onFilter }: Props) {
-  const [actionFilter, setActionFilter] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState("");
-  const [userFilter, setUserFilter] = useState("");
+export default function LogTable({ entries, totalPages, currentPage, totalEntries, filters, onFilterChange, onPageChange }: Props) {
+  const hasActiveFilter = Object.values(filters).some(Boolean);
 
-  function applyFilters() {
-    onFilter({ action: actionFilter || undefined, category: categoryFilter || undefined, username: userFilter || undefined });
+  function setFilter(key: keyof LogFilters, value: string) {
+    onFilterChange({ ...filters, [key]: value });
   }
 
   function clearFilters() {
-    setActionFilter("");
-    setCategoryFilter("");
-    setUserFilter("");
-    onFilter({});
+    onFilterChange(EMPTY_LOG_FILTERS);
   }
 
   return (
     <div>
-      <h3 style={styles.title}>Events</h3>
-      <div style={styles.filters}>
-        <select style={styles.select} value={actionFilter} onChange={(e) => setActionFilter(e.target.value)}>
-          <option value="">All Actions</option>
-          <option value="Allowed">Allowed</option>
-          <option value="Blocked">Blocked</option>
-        </select>
-        <input style={styles.filterInput} placeholder="Category…" value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)} />
-        <input style={styles.filterInput} placeholder="Username…" value={userFilter} onChange={(e) => setUserFilter(e.target.value)} />
-        <button style={styles.applyBtn} onClick={applyFilters}>Apply</button>
-        <button style={styles.clearBtn} onClick={clearFilters}>Clear</button>
+      <div style={styles.titleRow}>
+        <h3 style={styles.title}>Events</h3>
+        {hasActiveFilter && (
+          <button style={styles.clearBtn} onClick={clearFilters}>Clear filters</button>
+        )}
       </div>
       <div style={styles.tableWrap}>
         <table style={styles.table}>
           <thead>
             <tr>
-              {["Timestamp", "User", "Source IP", "Destination", "Category", "Action", "Bytes Out", "Code", "Threat"].map((h) => (
-                <th key={h} style={styles.th}>{h}</th>
-              ))}
+              <th style={styles.th}>Timestamp</th>
+              <th style={styles.th}>User</th>
+              <th style={styles.th}>Source IP</th>
+              <th style={styles.th}>Destination</th>
+              <th style={styles.th}>Category</th>
+              <th style={styles.th}>Action</th>
+              <th style={styles.th}>Bytes Out</th>
+              <th style={styles.th}>Code</th>
+              <th style={styles.th}>Threat</th>
+            </tr>
+            <tr style={{ background: colors.bgElevated }}>
+              <th style={styles.filterCell} />
+              <th style={styles.filterCell}>
+                <input style={styles.filterInput} placeholder="Filter…" value={filters.username} onChange={(e) => setFilter("username", e.target.value)} />
+              </th>
+              <th style={styles.filterCell}>
+                <input style={styles.filterInput} placeholder="Filter…" value={filters.src_ip} onChange={(e) => setFilter("src_ip", e.target.value)} />
+              </th>
+              <th style={styles.filterCell}>
+                <input style={styles.filterInput} placeholder="Filter…" value={filters.dst_hostname} onChange={(e) => setFilter("dst_hostname", e.target.value)} />
+              </th>
+              <th style={styles.filterCell}>
+                <input style={styles.filterInput} placeholder="Filter…" value={filters.category} onChange={(e) => setFilter("category", e.target.value)} />
+              </th>
+              <th style={styles.filterCell}>
+                <select style={styles.filterSelect} value={filters.action} onChange={(e) => setFilter("action", e.target.value)}>
+                  <option value="">All</option>
+                  <option value="Allowed">Allowed</option>
+                  <option value="Blocked">Blocked</option>
+                </select>
+              </th>
+              <th style={styles.filterCell} />
+              <th style={styles.filterCell}>
+                <input style={styles.filterInput} placeholder="Filter…" value={filters.response_code} onChange={(e) => setFilter("response_code", e.target.value)} />
+              </th>
+              <th style={styles.filterCell}>
+                <input style={styles.filterInput} placeholder="Filter…" value={filters.threat_name} onChange={(e) => setFilter("threat_name", e.target.value)} />
+              </th>
             </tr>
           </thead>
           <tbody>
             {entries.map((e) => (
-              <tr key={e.id} style={{ background: e.is_anomalous ? "#2d1515" : "transparent" }}>
+              <tr key={e.id} style={{
+                background: e.is_anomalous ? `${colors.dangerBg}CC` : "transparent",
+                borderLeft: e.is_anomalous ? `2px solid ${colors.danger}66` : "2px solid transparent",
+              }}>
                 <td style={styles.td}>{e.timestamp ? new Date(e.timestamp).toLocaleString() : "—"}</td>
                 <td style={styles.td}>{e.username ?? "—"}</td>
                 <td style={styles.td}>{e.src_ip ?? "—"}</td>
@@ -74,48 +118,59 @@ export default function LogTable({ entries, totalPages, currentPage, onPageChang
                 </td>
                 <td style={styles.td}>{e.category ?? "—"}</td>
                 <td style={styles.td}>
-                  <span style={{ ...styles.actionBadge, ...(e.action?.toLowerCase() === "blocked" ? styles.blocked : styles.allowed) }}>
+                  <span style={e.action?.toLowerCase() === "blocked" ? styles.blocked : styles.allowed}>
                     {e.action ?? "—"}
                   </span>
                 </td>
                 <td style={styles.td}>{e.bytes_sent?.toLocaleString() ?? "—"}</td>
                 <td style={styles.td}>{e.response_code ?? "—"}</td>
-                <td style={{ ...styles.td, color: "#f87171" }}>{e.threat_name || ""}</td>
+                <td style={{ ...styles.td, color: colors.danger }}>{e.threat_name || ""}</td>
               </tr>
             ))}
+            {entries.length === 0 && (
+              <tr>
+                <td colSpan={9} style={styles.emptyCell}>No entries match the current filters.</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
-      {totalPages > 1 && (
-        <div style={styles.pagination}>
-          <button style={styles.pageBtn} disabled={currentPage === 1} onClick={() => onPageChange(currentPage - 1)}>
-            Previous
-          </button>
-          <span style={styles.pageInfo}>Page {currentPage} of {totalPages}</span>
-          <button style={styles.pageBtn} disabled={currentPage === totalPages} onClick={() => onPageChange(currentPage + 1)}>
-            Next
-          </button>
-        </div>
-      )}
+      <div style={styles.footer}>
+        <span style={styles.pageInfo}>
+          {hasActiveFilter ? `${totalEntries} matching entries` : `${totalEntries} entries`}
+        </span>
+        {totalPages > 1 && (
+          <div style={styles.pagination}>
+            <button style={styles.pageBtn} disabled={currentPage === 1} onClick={() => onPageChange(currentPage - 1)}>
+              Previous
+            </button>
+            <span style={styles.pageInfo}>Page {currentPage} of {totalPages}</span>
+            <button style={styles.pageBtn} disabled={currentPage === totalPages} onClick={() => onPageChange(currentPage + 1)}>
+              Next
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
 const styles: Record<string, React.CSSProperties> = {
-  title: { color: "#94a3b8", fontSize: 13, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 12 },
-  filters: { display: "flex", gap: 8, marginBottom: 12, flexWrap: "wrap" },
-  select: { background: "#1e293b", border: "1px solid #334155", color: "#cbd5e1", padding: "6px 10px", borderRadius: 6, fontSize: 13 },
-  filterInput: { background: "#1e293b", border: "1px solid #334155", color: "#cbd5e1", padding: "6px 10px", borderRadius: 6, fontSize: 13, width: 140 },
-  applyBtn: { background: "#3b82f6", border: "none", color: "#fff", padding: "6px 14px", borderRadius: 6, cursor: "pointer", fontSize: 13 },
-  clearBtn: { background: "transparent", border: "1px solid #334155", color: "#94a3b8", padding: "6px 14px", borderRadius: 6, cursor: "pointer", fontSize: 13 },
-  tableWrap: { overflowX: "auto", borderRadius: 10, border: "1px solid #1e293b" },
+  titleRow: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 },
+  title: { color: colors.textMuted, fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em" },
+  clearBtn: { background: "transparent", border: `1px solid ${colors.border}`, color: colors.textMuted, padding: "4px 12px", borderRadius: 6, cursor: "pointer", fontSize: 12 },
+  tableWrap: { overflowX: "auto", borderRadius: 10, border: `1px solid ${colors.border}` },
   table: { width: "100%", borderCollapse: "collapse", fontSize: 13 },
-  th: { color: "#64748b", padding: "10px 12px", textAlign: "left", borderBottom: "1px solid #1e293b", whiteSpace: "nowrap", background: "#1e293b", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.04em" },
-  td: { color: "#cbd5e1", padding: "9px 12px", borderBottom: "1px solid #0f172a" },
-  actionBadge: { padding: "2px 8px", borderRadius: 4, fontSize: 11, fontWeight: 700 },
-  allowed: { background: "#14532d", color: "#86efac" },
-  blocked: { background: "#7f1d1d", color: "#fca5a5" },
-  pagination: { display: "flex", justifyContent: "center", alignItems: "center", gap: 16, marginTop: 16 },
-  pageBtn: { background: "#1e293b", border: "1px solid #334155", color: "#cbd5e1", padding: "6px 16px", borderRadius: 6, cursor: "pointer", fontSize: 13 },
-  pageInfo: { color: "#64748b", fontSize: 13 },
+  th: { color: colors.textMuted, padding: "10px 12px", textAlign: "left", borderBottom: `1px solid ${colors.border}`, whiteSpace: "nowrap", background: colors.bgElevated, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.04em" },
+  filterCell: { padding: "6px 8px", borderBottom: `1px solid ${colors.border}`, background: colors.bgElevated },
+  filterInput: { width: "100%", background: colors.bgSurface, border: `1px solid ${colors.border}`, borderRadius: 5, color: colors.textSecondary, fontSize: 12, padding: "4px 7px", outline: "none", boxSizing: "border-box" },
+  filterSelect: { width: "100%", background: colors.bgSurface, border: `1px solid ${colors.border}`, borderRadius: 5, color: colors.textSecondary, fontSize: 12, padding: "4px 7px" },
+  td: { color: colors.textSecondary, padding: "9px 12px", borderBottom: `1px solid ${colors.border}` },
+  allowed: { padding: "2px 8px", borderRadius: 4, fontSize: 11, fontWeight: 700, background: colors.successBg, color: colors.success },
+  blocked: { padding: "2px 8px", borderRadius: 4, fontSize: 11, fontWeight: 700, background: colors.dangerBg, color: colors.danger },
+  emptyCell: { color: colors.textMuted, padding: "2rem", textAlign: "center", fontSize: 13 },
+  footer: { display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 12, paddingBottom: 32 },
+  pagination: { display: "flex", alignItems: "center", gap: 12 },
+  pageBtn: { background: colors.bgSurface, border: `1px solid ${colors.border}`, color: colors.textSecondary, padding: "6px 16px", borderRadius: 6, cursor: "pointer", fontSize: 13 },
+  pageInfo: { color: colors.textMuted, fontSize: 12 },
 };

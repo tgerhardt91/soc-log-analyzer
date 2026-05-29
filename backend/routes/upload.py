@@ -1,12 +1,17 @@
 import os
 import threading
 import uuid
+from concurrent.futures import ThreadPoolExecutor
 from flask import Blueprint, request, jsonify
+from sqlalchemy.orm import joinedload
 from models import db, Analysis, LogEntry
 from routes.auth import require_jwt
 from services.parser import parse_log_file
 from services.anomaly import screen_anomalies
-from services.claude_service import enrich_anomalies, generate_summary
+from services.claude_service import (
+    build_enrich_context, call_enrich_api, apply_enrich_results,
+    build_summary_context, call_summary_api,
+)
 import config
 
 upload_bp = Blueprint("upload", __name__)
@@ -36,24 +41,51 @@ def _process(app, analysis_id: str, filepath: str):
 
             # Load persisted entries for anomaly screening
             db_entries = LogEntry.query.filter_by(analysis_id=analysis_id).all()
+            entries_by_id = {e.id: e for e in db_entries}
             raw_anomalies = screen_anomalies(db_entries)
 
+            # Build summary context now — raw_anomalies are plain dicts, no DB insert needed.
+            # Fire the Sonnet call immediately so it runs while the main thread handles
+            # anomaly insertion and enrichment context building.
+            summary_ctx = build_summary_context(db_entries, raw_anomalies)
+
             from models import Anomaly
-            for a in raw_anomalies:
-                db.session.add(Anomaly(
-                    analysis_id=analysis_id,
-                    log_entry_id=a.get("log_entry_id"),
-                    anomaly_type=a["anomaly_type"],
-                    explanation=a["explanation"],
-                    confidence=a["confidence"],
-                ))
-            db.session.commit()
+            with ThreadPoolExecutor(max_workers=2) as pool:
+                summary_future = pool.submit(call_summary_api, summary_ctx)
 
-            db_anomalies = list(Anomaly.query.filter_by(analysis_id=analysis_id).all())
-            enrich_anomalies(db_anomalies)
-            db.session.commit()
+                # Main thread: insert and load anomalies while Sonnet is running
+                for a in raw_anomalies:
+                    anomaly = Anomaly(
+                        analysis_id=analysis_id,
+                        anomaly_type=a["anomaly_type"],
+                        explanation=a["explanation"],
+                        confidence=a["confidence"],
+                    )
+                    anomaly.log_entries = [
+                        entries_by_id[eid]
+                        for eid in a.get("log_entry_ids", [])
+                        if eid in entries_by_id
+                    ]
+                    db.session.add(anomaly)
+                db.session.commit()
 
-            analysis.summary = generate_summary(analysis, db_entries, db_anomalies)
+                db_anomalies = list(
+                    Anomaly.query.filter_by(analysis_id=analysis_id)
+                    .options(joinedload(Anomaly.log_entries))
+                    .all()
+                )
+
+                # Build enrich context then fire Haiku — Sonnet is already in flight
+                to_enrich, enrich_ctx = build_enrich_context(db_anomalies)
+                enrich_future = pool.submit(call_enrich_api, enrich_ctx)
+
+                enriched_items = enrich_future.result()
+                analysis.summary = summary_future.result()
+
+            # Apply enrichment results back to ORM objects (main thread)
+            apply_enrich_results(to_enrich, enriched_items)
+
+            db.session.commit()
             analysis.status = "done"
             db.session.commit()
 

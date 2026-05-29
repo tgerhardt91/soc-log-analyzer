@@ -143,19 +143,6 @@ CSV files with the same column names are also accepted.
 
 ---
 
-## Cloud deployment (bonus)
-
-| Layer | Service |
-|-------|---------|
-| Frontend | Vercel (set `VITE_API_URL` env var) |
-| Backend | Google Cloud Run |
-| Database | Cloud SQL or Supabase |
-| File storage | Google Cloud Storage (set `UPLOAD_BACKEND=gcs` and `GCS_BUCKET_NAME`) |
-
-The backend is fully stateless and container-ready. No code changes are needed — only environment variable updates.
-
----
-
 ## Project structure
 
 ```

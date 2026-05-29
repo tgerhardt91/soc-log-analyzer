@@ -1,6 +1,7 @@
 import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/client";
+import { colors } from "../theme";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -27,8 +28,11 @@ export default function LoginPage() {
   return (
     <div style={styles.page}>
       <div style={styles.card}>
-        <h1 style={styles.title}>SOC Log Analyzer</h1>
-        <p style={styles.subtitle}>Sign in to continue</p>
+        <div style={styles.logoRow}>
+          <div style={styles.logoMark}>⬡</div>
+          <span style={styles.logoText}>SOC Log Analyzer</span>
+        </div>
+        <p style={styles.subtitle}>Sign in to your workspace</p>
         <form onSubmit={handleSubmit}>
           <div style={styles.field}>
             <label style={styles.label}>Username</label>
@@ -68,42 +72,67 @@ const styles: Record<string, React.CSSProperties> = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    background: "#0f172a",
+    background: colors.bgPage,
     fontFamily: "system-ui, sans-serif",
   },
   card: {
-    background: "#1e293b",
+    background: colors.bgSurface,
     borderRadius: 12,
     padding: "2.5rem 2rem",
-    width: 360,
-    boxShadow: "0 4px 32px rgba(0,0,0,0.4)",
+    width: 380,
+    boxShadow: `0 0 0 1px ${colors.border}, 0 8px 48px rgba(0,0,0,0.6)`,
   },
-  title: { margin: 0, color: "#f1f5f9", fontSize: 24, fontWeight: 700 },
-  subtitle: { color: "#94a3b8", marginTop: 4, marginBottom: 24, fontSize: 14 },
+  logoRow: {
+    display: "flex",
+    alignItems: "center",
+    gap: 10,
+    marginBottom: 24,
+  },
+  logoMark: {
+    width: 28,
+    height: 28,
+    borderRadius: 6,
+    background: `linear-gradient(135deg, ${colors.accent}, ${colors.accentDim})`,
+    boxShadow: `0 0 12px ${colors.accent}66`,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: 14,
+    color: colors.bgPage,
+    fontWeight: 900,
+  },
+  logoText: {
+    color: colors.textPrimary,
+    fontWeight: 700,
+    fontSize: 16,
+  },
+  title: { margin: 0, color: colors.textPrimary, fontSize: 22, fontWeight: 700 },
+  subtitle: { color: colors.textMuted, marginTop: 6, marginBottom: 28, fontSize: 14 },
   field: { marginBottom: 16 },
-  label: { display: "block", color: "#cbd5e1", fontSize: 13, marginBottom: 6 },
+  label: { display: "block", color: colors.textSecondary, fontSize: 13, marginBottom: 6 },
   input: {
     width: "100%",
     padding: "10px 12px",
     borderRadius: 8,
-    border: "1px solid #334155",
-    background: "#0f172a",
-    color: "#f1f5f9",
+    border: `1px solid ${colors.border}`,
+    background: colors.bgInput,
+    color: colors.textPrimary,
     fontSize: 14,
     boxSizing: "border-box",
     outline: "none",
   },
-  error: { color: "#f87171", fontSize: 13, marginTop: 8 },
+  error: { color: colors.danger, fontSize: 13, marginTop: 8 },
   btn: {
     width: "100%",
     padding: "11px 0",
     marginTop: 8,
     borderRadius: 8,
     border: "none",
-    background: "#3b82f6",
-    color: "#fff",
+    background: `linear-gradient(135deg, ${colors.accent}, ${colors.accentDim})`,
+    color: colors.bgPage,
     fontSize: 15,
-    fontWeight: 600,
+    fontWeight: 700,
     cursor: "pointer",
+    letterSpacing: "0.02em",
   },
 };

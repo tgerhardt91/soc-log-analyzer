@@ -4,6 +4,12 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+anomaly_log_entries = db.Table(
+    "anomaly_log_entries",
+    db.Column("anomaly_id", db.String(36), db.ForeignKey("anomalies.id"), primary_key=True),
+    db.Column("log_entry_id", db.String(36), db.ForeignKey("log_entries.id"), primary_key=True),
+)
+
 
 def _uuid():
     return str(uuid.uuid4())
@@ -55,7 +61,6 @@ class LogEntry(db.Model):
     threat_name = db.Column(db.Text)
 
     analysis = db.relationship("Analysis", back_populates="entries")
-    anomaly = db.relationship("Anomaly", back_populates="log_entry", uselist=False)
 
     def to_dict(self):
         return {
@@ -81,20 +86,18 @@ class Anomaly(db.Model):
 
     id = db.Column(db.String(36), primary_key=True, default=_uuid)
     analysis_id = db.Column(db.String(36), db.ForeignKey("analyses.id"), nullable=False)
-    log_entry_id = db.Column(db.String(36), db.ForeignKey("log_entries.id"), nullable=True)
     anomaly_type = db.Column(db.Text)
     explanation = db.Column(db.Text)
     confidence = db.Column(db.Float)
 
     analysis = db.relationship("Analysis", back_populates="anomalies")
-    log_entry = db.relationship("LogEntry", back_populates="anomaly")
+    log_entries = db.relationship("LogEntry", secondary=anomaly_log_entries)
 
     def to_dict(self):
         return {
             "id": self.id,
-            "log_entry_id": self.log_entry_id,
             "anomaly_type": self.anomaly_type,
             "explanation": self.explanation,
             "confidence": self.confidence,
-            "log_entry": self.log_entry.to_dict() if self.log_entry else None,
+            "log_entries": [e.to_dict() for e in self.log_entries],
         }
