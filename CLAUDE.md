@@ -1,6 +1,6 @@
 # SOC Log Analyzer
 
-Full-stack web app for uploading, parsing, and AI-analyzing ZScaler Web Proxy logs. Built as a take-home interview project.
+Full-stack web app for uploading, parsing, and AI-analyzing ZScaler Web Proxy logs.
 
 ## Stack
 - **Frontend**: React 18 + Vite + TypeScript (in `frontend/`)
