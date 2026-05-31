@@ -39,9 +39,19 @@ type Props = {
   filters: LogFilters;
   onFilterChange: (filters: LogFilters) => void;
   onPageChange: (page: number) => void;
+  selectedHour: string | null;
+  onClearHour: () => void;
 };
 
-export default function LogTable({ entries, totalPages, currentPage, totalEntries, filters, onFilterChange, onPageChange }: Props) {
+function formatHourRange(hour: string): string {
+  const d = new Date(hour);
+  const start = d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  d.setHours(d.getHours() + 1);
+  const end = d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  return `${start}–${end}`;
+}
+
+export default function LogTable({ entries, totalPages, currentPage, totalEntries, filters, onFilterChange, onPageChange, selectedHour, onClearHour }: Props) {
   const hasActiveFilter = Object.values(filters).some(Boolean);
 
   function setFilter(key: keyof LogFilters, value: string) {
@@ -56,9 +66,16 @@ export default function LogTable({ entries, totalPages, currentPage, totalEntrie
     <div>
       <div style={styles.titleRow}>
         <h3 style={styles.title}>Events</h3>
-        {hasActiveFilter && (
-          <button style={styles.clearBtn} onClick={clearFilters}>Clear filters</button>
-        )}
+        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+          {selectedHour && (
+            <button style={styles.hourChip} onClick={onClearHour}>
+              {formatHourRange(selectedHour)} ×
+            </button>
+          )}
+          {hasActiveFilter && (
+            <button style={styles.clearBtn} onClick={clearFilters}>Clear filters</button>
+          )}
+        </div>
       </div>
       <div style={styles.tableWrap}>
         <table style={styles.table}>
@@ -137,7 +154,11 @@ export default function LogTable({ entries, totalPages, currentPage, totalEntrie
       </div>
       <div style={styles.footer}>
         <span style={styles.pageInfo}>
-          {hasActiveFilter ? `${totalEntries} matching entries` : `${totalEntries} entries`}
+          {selectedHour
+            ? `${totalEntries} entries · ${formatHourRange(selectedHour)}`
+            : hasActiveFilter
+            ? `${totalEntries} matching entries`
+            : `${totalEntries} entries`}
         </span>
         {totalPages > 1 && (
           <div style={styles.pagination}>
@@ -159,6 +180,7 @@ const styles: Record<string, React.CSSProperties> = {
   titleRow: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 },
   title: { color: colors.textMuted, fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em" },
   clearBtn: { background: "transparent", border: `1px solid ${colors.border}`, color: colors.textMuted, padding: "4px 12px", borderRadius: 6, cursor: "pointer", fontSize: 12 },
+  hourChip: { background: colors.accentBg, border: `1px solid ${colors.accent}44`, color: colors.accent, padding: "4px 10px", borderRadius: 6, cursor: "pointer", fontSize: 12, fontWeight: 600 },
   tableWrap: { overflowX: "auto", borderRadius: 10, border: `1px solid ${colors.border}` },
   table: { width: "100%", borderCollapse: "collapse", fontSize: 13 },
   th: { color: colors.textMuted, padding: "10px 12px", textAlign: "left", borderBottom: `1px solid ${colors.border}`, whiteSpace: "nowrap", background: colors.bgElevated, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.04em" },

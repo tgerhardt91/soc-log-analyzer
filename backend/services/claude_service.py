@@ -1,5 +1,6 @@
 import json
-from collections import Counter
+import statistics
+from collections import Counter, defaultdict
 import anthropic
 import config
 
@@ -146,3 +147,201 @@ Respond with a JSON object: {{"summary": "<your summary text>"}}"""
         return json.loads(raw)["summary"]
     except Exception:
         return response.content[0].text.strip()
+
+
+# ---------------------------------------------------------------------------
+# AI second-pass detection — same three-phase pattern
+# ---------------------------------------------------------------------------
+
+_PROGRAMMATIC_UA = ["python", "curl", "wget", "go-http", "java/", "okhttp", "libwww", "httpie"]
+MAX_AI_DETECT_CANDIDATES = 15
+
+
+def build_ai_detect_context(entries: list, flagged_entry_ids: set) -> dict | None:
+    """Phase 1 (main thread): compute behavioral anomaly candidates for AI validation.
+
+    Runs statistical tests (beaconing regularity, cumulative bytes, auth failure rate,
+    programmatic user-agents) in Python, then packages the candidates for Claude to
+    validate and explain. Entry IDs come from our code, not from Claude, so hallucination
+    of non-existent IDs is structurally prevented.
+    """
+    if not entries:
+        return None
+
+    ip_requests: dict = defaultdict(list)
+    ip_host_times: dict = defaultdict(list)   # (ip, hostname) -> [(timestamp, entry_id)]
+    ip_resp_codes: dict = defaultdict(lambda: defaultdict(int))
+    ip_user_agents: dict = defaultdict(set)
+
+    for e in entries:
+        if not e.src_ip:
+            continue
+        ip = e.src_ip
+        ip_requests[ip].append(e)
+        if e.dst_hostname and e.timestamp:
+            ip_host_times[(ip, e.dst_hostname)].append((e.timestamp, e.id))
+        if e.response_code:
+            ip_resp_codes[ip][e.response_code] += 1
+        if e.user_agent:
+            ip_user_agents[ip].add(e.user_agent)
+
+    candidates = []
+
+    # Beaconing: requests to the same host at suspiciously regular intervals
+    for (ip, hostname), time_entries in ip_host_times.items():
+        if len(time_entries) < 5:
+            continue
+        sorted_te = sorted(time_entries, key=lambda x: x[0])
+        timestamps = [t for t, _ in sorted_te]
+        entry_ids = [eid for _, eid in sorted_te if eid not in flagged_entry_ids]
+        intervals = [(timestamps[i + 1] - timestamps[i]).total_seconds()
+                     for i in range(len(timestamps) - 1)]
+        avg = statistics.mean(intervals)
+        if avg < 60:   # sub-minute bursts are browsing, not beaconing
+            continue
+        std = statistics.stdev(intervals) if len(intervals) > 1 else 0
+        cv = std / avg if avg > 0 else 1.0
+        if cv < 0.30 and entry_ids:
+            candidates.append({
+                "candidate_type": "beaconing",
+                "src_ip": ip,
+                "dst_hostname": hostname,
+                "request_count": len(time_entries),
+                "avg_interval_seconds": round(avg),
+                "interval_regularity_pct": round((1 - cv) * 100),
+                "entry_ids": entry_ids[:20],
+            })
+
+    # Slow exfil: high cumulative bytes_sent but no single event over the rule threshold
+    SLOW_EXFIL_TOTAL = 50 * 1024 * 1024   # 50 MB cumulative
+    SINGLE_THRESHOLD = 10 * 1024 * 1024   # 10 MB (already caught by data_exfil rule)
+    for ip, reqs in ip_requests.items():
+        total_bytes = sum(e.bytes_sent or 0 for e in reqs)
+        if total_bytes < SLOW_EXFIL_TOTAL:
+            continue
+        if max(e.bytes_sent or 0 for e in reqs) >= SINGLE_THRESHOLD:
+            continue   # already flagged by data_exfil rule
+        top_reqs = sorted(reqs, key=lambda e: e.bytes_sent or 0, reverse=True)
+        entry_ids = [e.id for e in top_reqs if e.id not in flagged_entry_ids][:20]
+        if entry_ids:
+            candidates.append({
+                "candidate_type": "slow_exfil",
+                "src_ip": ip,
+                "total_bytes_sent_mb": round(total_bytes / (1024 * 1024), 1),
+                "request_count": len(reqs),
+                "entry_ids": entry_ids,
+            })
+
+    # Programmatic user-agents: curl, python-requests, etc.
+    for ip, uas in ip_user_agents.items():
+        prog_uas = [ua for ua in uas if any(p in ua.lower() for p in _PROGRAMMATIC_UA)]
+        if not prog_uas:
+            continue
+        prog_entries = [e for e in ip_requests[ip]
+                        if any(p in (e.user_agent or "").lower() for p in _PROGRAMMATIC_UA)]
+        entry_ids = [e.id for e in prog_entries if e.id not in flagged_entry_ids][:20]
+        if entry_ids:
+            candidates.append({
+                "candidate_type": "ua_anomaly",
+                "src_ip": ip,
+                "programmatic_user_agents": prog_uas[:5],
+                "request_count_with_prog_ua": len(prog_entries),
+                "entry_ids": entry_ids,
+            })
+
+    # Auth abuse: ≥30 % of requests return 401/403 across ≥5 requests
+    for ip, codes in ip_resp_codes.items():
+        total = len(ip_requests[ip])
+        auth_fails = codes.get(401, 0) + codes.get(403, 0)
+        if total < 5 or auth_fails / total < 0.30:
+            continue
+        fail_entries = [e for e in ip_requests[ip] if e.response_code in (401, 403)]
+        entry_ids = [e.id for e in fail_entries if e.id not in flagged_entry_ids][:20]
+        if not entry_ids:
+            continue
+        unique_dests = len({e.dst_hostname for e in fail_entries if e.dst_hostname})
+        candidates.append({
+            "candidate_type": "auth_abuse",
+            "src_ip": ip,
+            "total_requests": total,
+            "auth_failures": auth_fails,
+            "failure_rate_pct": round(auth_fails / total * 100),
+            "unique_destinations_targeted": unique_dests,
+            "entry_ids": entry_ids,
+        })
+
+    if not candidates:
+        return None
+
+    candidates.sort(key=lambda c: len(c.get("entry_ids", [])), reverse=True)
+    return {"candidates": candidates[:MAX_AI_DETECT_CANDIDATES]}
+
+
+def call_ai_detect_api(context: dict | None) -> list:
+    """Phase 2 (threadable): validate behavioral candidates with Claude. No ORM access."""
+    if not context or not context.get("candidates"):
+        return []
+
+    # Collect all valid entry IDs so we can sanitize Claude's response
+    all_candidate_ids = {eid for c in context["candidates"] for eid in c.get("entry_ids", [])}
+
+    prompt = f"""You are validating potential security anomalies identified by behavioral analysis of ZScaler proxy logs.
+
+For each candidate below, determine whether it represents a genuine security concern worth escalating.
+
+Candidate types:
+- beaconing: regular-interval requests suggesting C2 command-and-control communication
+- slow_exfil: sustained low-volume data exfiltration spread across many transfers
+- ua_anomaly: programmatic/non-browser clients that may indicate malware or automated attacks
+- auth_abuse: high authentication failure rate suggesting credential stuffing or brute force
+
+Candidates to evaluate:
+{json.dumps(context["candidates"], indent=2, default=str)}
+
+Instructions:
+- Only report findings with confidence >= 0.50 — skip low-signal noise
+- Write explanations for a SOC analyst: specific, actionable, 1-2 sentences
+- Use ONLY the entry_ids already listed in each candidate — do not modify or add IDs
+
+Respond with a JSON array (empty array [] if nothing meets the threshold):
+[
+  {{
+    "anomaly_type": "<candidate_type>",
+    "explanation": "<SOC-analyst-facing explanation>",
+    "confidence": <0.0-1.0>,
+    "log_entry_ids": ["<id>", ...]
+  }}
+]"""
+
+    response = _client.messages.create(
+        model=ENRICH_MODEL,
+        max_tokens=1024,
+        system=_system_with_cache(),
+        messages=[{"role": "user", "content": prompt}],
+    )
+    try:
+        raw = response.content[0].text.strip()
+        if raw.startswith("```"):
+            raw = raw.split("```")[1]
+            if raw.startswith("json"):
+                raw = raw[4:]
+        items = json.loads(raw)
+        if not isinstance(items, list):
+            return []
+        validated = []
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            # Only keep IDs that actually exist in our candidate data
+            safe_ids = [eid for eid in item.get("log_entry_ids", []) if eid in all_candidate_ids]
+            if not safe_ids:
+                continue
+            validated.append({
+                "anomaly_type": item.get("anomaly_type", "ai_detected"),
+                "explanation": item.get("explanation", ""),
+                "confidence": float(item.get("confidence", 0.5)),
+                "log_entry_ids": safe_ids,
+            })
+        return validated
+    except Exception:
+        return []

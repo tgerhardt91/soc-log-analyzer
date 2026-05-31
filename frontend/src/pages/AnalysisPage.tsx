@@ -29,10 +29,11 @@ export default function AnalysisPage() {
   const [data, setData] = useState<AnalysisData | null>(null);
   const [page, setPage] = useState(1);
   const [filters, setFilters] = useState<LogFilters>(EMPTY_LOG_FILTERS);
+  const [selectedHour, setSelectedHour] = useState<string | null>(null);
   const [polling, setPolling] = useState(true);
   const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const fetchData = useCallback(async (pg: number, f: LogFilters) => {
+  const fetchData = useCallback(async (pg: number, f: LogFilters, hour: string | null) => {
     try {
       const params: Record<string, string | number> = { page: pg, per_page: 100 };
       if (f.username)      params.username      = f.username;
@@ -42,6 +43,7 @@ export default function AnalysisPage() {
       if (f.action)        params.action        = f.action;
       if (f.response_code) params.response_code = f.response_code;
       if (f.threat_name)   params.threat_name   = f.threat_name;
+      if (hour)            params.hour          = hour;
       const { data: res } = await api.get(`/api/analyses/${id}`, { params });
       setData(res);
       if (res.status === "done" || res.status === "error") setPolling(false);
@@ -52,27 +54,33 @@ export default function AnalysisPage() {
 
   // Initial load + polling while processing
   useEffect(() => {
-    fetchData(page, filters);
+    fetchData(page, filters, selectedHour);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     if (!polling) return;
-    const interval = setInterval(() => fetchData(page, filters), 2000);
+    const interval = setInterval(() => fetchData(page, filters, selectedHour), 2000);
     return () => clearInterval(interval);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [polling, fetchData]);
 
   function handlePageChange(p: number) {
     setPage(p);
-    fetchData(p, filters);
+    fetchData(p, filters, selectedHour);
   }
 
   function handleFilterChange(f: LogFilters) {
     setFilters(f);
     setPage(1);
     if (debounceTimer.current) clearTimeout(debounceTimer.current);
-    debounceTimer.current = setTimeout(() => fetchData(1, f), 350);
+    debounceTimer.current = setTimeout(() => fetchData(1, f, selectedHour), 350);
+  }
+
+  function handleBarClick(hour: string | null) {
+    setSelectedHour(hour);
+    setPage(1);
+    fetchData(1, filters, hour);
   }
 
   if (!data) return <div style={styles.loading}>Loading…</div>;
@@ -117,8 +125,12 @@ export default function AnalysisPage() {
               anomalyCount={(data.anomalies as unknown[]).length}
               timeRange={timeRange}
             />
-            <Timeline data={data.timeline} />
             <AnomalyPanel anomalies={data.anomalies as Parameters<typeof AnomalyPanel>[0]["anomalies"]} />
+            <Timeline
+              data={data.timeline}
+              selectedHour={selectedHour}
+              onBarClick={handleBarClick}
+            />
             <LogTable
               entries={data.entries as Parameters<typeof LogTable>[0]["entries"]}
               totalPages={data.total_pages}
@@ -127,6 +139,8 @@ export default function AnalysisPage() {
               filters={filters}
               onFilterChange={handleFilterChange}
               onPageChange={handlePageChange}
+              selectedHour={selectedHour}
+              onClearHour={() => handleBarClick(null)}
             />
           </>
         )}

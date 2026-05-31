@@ -17,10 +17,12 @@ def create_app():
     from routes.auth import auth_bp
     from routes.upload import upload_bp
     from routes.analyses import analyses_bp
+    from routes.generate import generate_bp
 
     app.register_blueprint(auth_bp, url_prefix="/api/auth")
     app.register_blueprint(upload_bp, url_prefix="/api")
     app.register_blueprint(analyses_bp, url_prefix="/api")
+    app.register_blueprint(generate_bp, url_prefix="/api")
 
     with app.app_context():
         db.create_all()

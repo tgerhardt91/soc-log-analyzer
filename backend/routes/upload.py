@@ -11,6 +11,7 @@ from services.anomaly import screen_anomalies
 from services.claude_service import (
     build_enrich_context, call_enrich_api, apply_enrich_results,
     build_summary_context, call_summary_api,
+    build_ai_detect_context, call_ai_detect_api,
 )
 import config
 
@@ -44,17 +45,23 @@ def _process(app, analysis_id: str, filepath: str):
             entries_by_id = {e.id: e for e in db_entries}
             raw_anomalies = screen_anomalies(db_entries)
 
-            # Build summary context now — raw_anomalies are plain dicts, no DB insert needed.
-            # Fire the Sonnet call immediately so it runs while the main thread handles
-            # anomaly insertion and enrichment context building.
+            # Build contexts for the two initial parallel calls: Sonnet summary and
+            # Haiku AI second-pass detection. Both fire while the main thread waits.
             summary_ctx = build_summary_context(db_entries, raw_anomalies)
+            flagged_ids = {eid for a in raw_anomalies for eid in a.get("log_entry_ids", [])}
+            ai_detect_ctx = build_ai_detect_context(db_entries, flagged_ids)
 
             from models import Anomaly
-            with ThreadPoolExecutor(max_workers=2) as pool:
+            with ThreadPoolExecutor(max_workers=3) as pool:
                 summary_future = pool.submit(call_summary_api, summary_ctx)
+                detect_future = pool.submit(call_ai_detect_api, ai_detect_ctx)
 
-                # Main thread: insert and load anomalies while Sonnet is running
-                for a in raw_anomalies:
+                # Wait for AI detection before DB insert so AI anomalies are included
+                ai_anomalies = detect_future.result()
+                all_raw = raw_anomalies + ai_anomalies
+
+                # Main thread: insert all anomalies while Sonnet is still running
+                for a in all_raw:
                     anomaly = Anomaly(
                         analysis_id=analysis_id,
                         anomaly_type=a["anomaly_type"],
