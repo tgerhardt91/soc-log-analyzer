@@ -42,6 +42,16 @@ def get_analysis(analysis_id):
     if code_val and code_val.isdigit():
         query = query.filter(LogEntry.response_code == int(code_val))
 
+    hour_val = request.args.get("hour")
+    if hour_val:
+        from datetime import datetime, timedelta
+        try:
+            hour_start = datetime.fromisoformat(hour_val)
+            hour_end = hour_start + timedelta(hours=1)
+            query = query.filter(LogEntry.timestamp >= hour_start, LogEntry.timestamp < hour_end)
+        except ValueError:
+            pass
+
     paginated = query.order_by(LogEntry.timestamp).paginate(
         page=page, per_page=per_page, error_out=False
     )

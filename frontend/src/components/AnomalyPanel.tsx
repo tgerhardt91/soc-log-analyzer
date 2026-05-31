@@ -45,11 +45,13 @@ export default function AnomalyPanel({ anomalies }: { anomalies: Anomaly[] }) {
               <span style={styles.explanation}>{a.explanation}</span>
             </div>
             <div style={styles.right}>
-              {(a.log_entries ?? []).length > 1 && (
-                <span style={styles.eventCount}>{(a.log_entries ?? []).length} events</span>
-              )}
-              <ConfidenceBadge score={a.confidence} />
-              <span style={styles.chevron}>{open === a.id ? "▲" : "▼"}</span>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 8 }}>
+                <ConfidenceBadge score={a.confidence} />
+                {(a.log_entries ?? []).length > 1 && (
+                  <span style={styles.eventCount}>{(a.log_entries ?? []).length} events</span>
+                )}
+              </div>
+              <span style={styles.chevron}>{open === a.id ? "▼" : "►"}</span>
             </div>
           </div>
           {open === a.id && (
@@ -140,7 +142,7 @@ const styles: Record<string, React.CSSProperties> = {
     transition: "box-shadow 0.2s",
   },
   header: { display: "flex", justifyContent: "space-between", alignItems: "flex-start", padding: "12px 16px", cursor: "pointer", gap: 12 },
-  left: { display: "flex", alignItems: "flex-start", gap: 10, flex: 1, minWidth: 0 },
+  left: { display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 6, flex: 1, minWidth: 0 },
   right: { display: "flex", alignItems: "flex-start", gap: 12, flexShrink: 0, paddingTop: 1 },
   typeBadge: { padding: "2px 8px", borderRadius: 4, fontSize: 11, fontWeight: 700, textTransform: "uppercase", whiteSpace: "nowrap", flexShrink: 0 },
   explanation: { color: colors.textSecondary, fontSize: 14, lineHeight: 1.5 },
