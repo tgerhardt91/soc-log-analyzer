@@ -227,24 +227,31 @@ _SEEDERS: dict[str, callable] = {
 }
 
 
+MAX_EVENTS = 500
+
+
 def generate_log(anomaly_types: list[str], n_background: int = 450) -> str:
-    rows = _background(n_background)
+    seeded = []
     for t in anomaly_types:
         if t in _SEEDERS:
-            rows.extend(_SEEDERS[t]())
+            seeded.extend(_SEEDERS[t]())
+    bg_count = min(n_background, max(0, MAX_EVENTS - len(seeded)))
+    rows = _background(bg_count) + seeded
     rows.sort(key=lambda r: r.split("|")[0])
     return _HEADER + "\n".join(rows) + "\n"
 
 
 def generate_preview(anomaly_types: list[str], n_background: int = 450) -> dict:
     """Return structured preview data with each entry tagged by its anomaly type."""
-    tagged: list[tuple[str, str | None]] = [
-        (row, None) for row in _background(n_background)
-    ]
+    seeded_tagged: list[tuple[str, str | None]] = []
     for t in anomaly_types:
         if t in _SEEDERS:
             for row in _SEEDERS[t]():
-                tagged.append((row, t))
+                seeded_tagged.append((row, t))
+    bg_count = min(n_background, max(0, MAX_EVENTS - len(seeded_tagged)))
+    tagged: list[tuple[str, str | None]] = [
+        (row, None) for row in _background(bg_count)
+    ] + seeded_tagged
 
     tagged.sort(key=lambda x: x[0].split("|")[0])
 

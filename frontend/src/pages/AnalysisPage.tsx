@@ -47,7 +47,12 @@ export default function AnalysisPage() {
       const { data: res } = await api.get(`/api/analyses/${id}`, { params });
       setData(res);
       if (res.status === "done" || res.status === "error") setPolling(false);
-    } catch {
+    } catch (err: unknown) {
+      const status = (err as { response?: { status?: number } })?.response?.status;
+      if (status === 404) {
+        navigate("/");
+        return;
+      }
       setPolling(false);
     }
   }, [id]);
@@ -96,7 +101,7 @@ export default function AnalysisPage() {
     <div style={styles.page}>
       <nav style={styles.nav}>
         <div style={styles.navLeft}>
-          <div style={styles.logoMark}>⬡</div>
+          <div style={styles.logoMark}>🔍</div>
           <span style={styles.logoText}>SOC Log Analyzer</span>
           <span style={styles.navDivider} />
           <button style={styles.backBtn} onClick={() => navigate("/")}>← Upload</button>
@@ -169,7 +174,7 @@ const styles: Record<string, React.CSSProperties> = {
     background: `linear-gradient(135deg, ${colors.accent}, ${colors.accentDim})`,
     boxShadow: `0 0 10px ${colors.accent}55`,
     display: "flex", alignItems: "center", justifyContent: "center",
-    fontSize: 12, color: colors.bgPage, fontWeight: 900,
+    fontSize: 14, color: colors.bgPage, fontWeight: 900,
   },
   logoText: { color: colors.textPrimary, fontWeight: 700, fontSize: 14 },
   navDivider: { display: "inline-block", width: 1, height: 16, background: colors.border, margin: "0 4px" },

@@ -274,44 +274,52 @@ def build_ai_detect_context(entries: list, flagged_entry_ids: set) -> dict | Non
         return None
 
     candidates.sort(key=lambda c: len(c.get("entry_ids", [])), reverse=True)
-    return {"candidates": candidates[:MAX_AI_DETECT_CANDIDATES]}
+    top = candidates[:MAX_AI_DETECT_CANDIDATES]
+    for i, c in enumerate(top):
+        c["index"] = i
+    return {"candidates": top}
 
 
 def call_ai_detect_api(context: dict | None) -> list:
-    """Phase 2 (threadable): validate behavioral candidates with Claude. No ORM access."""
+    """Phase 2 (threadable): validate behavioral candidates with Claude. No ORM access.
+
+    Claude only returns {index, confirmed, explanation, confidence} — never entry IDs.
+    Python maps back to the original candidate's entry_ids to prevent hallucination and
+    keep the response token count small enough to not be truncated.
+    """
     if not context or not context.get("candidates"):
         return []
 
-    # Collect all valid entry IDs so we can sanitize Claude's response
-    all_candidate_ids = {eid for c in context["candidates"] for eid in c.get("entry_ids", [])}
+    # Strip entry_ids from what we send — Claude doesn't need them to evaluate
+    candidates_for_prompt = [
+        {k: v for k, v in c.items() if k != "entry_ids"}
+        for c in context["candidates"]
+    ]
+    candidates_by_index = {c["index"]: c for c in context["candidates"]}
 
-    prompt = f"""You are validating potential security anomalies identified by behavioral analysis of ZScaler proxy logs.
-
-For each candidate below, determine whether it represents a genuine security concern worth escalating.
+    prompt = f"""The following behavioral patterns were identified by statistical analysis of ZScaler proxy logs.
+These have already passed initial screening — your job is to write a clear SOC-analyst explanation
+and assign a confidence score for each one.
 
 Candidate types:
 - beaconing: regular-interval requests suggesting C2 command-and-control communication
-- slow_exfil: sustained low-volume data exfiltration spread across many transfers
-- ua_anomaly: programmatic/non-browser clients that may indicate malware or automated attacks
-- auth_abuse: high authentication failure rate suggesting credential stuffing or brute force
+- slow_exfil: sustained low-volume data exfiltration spread across many requests
+- ua_anomaly: programmatic/non-browser clients that may indicate malware or automation
+- auth_abuse: high auth failure rate suggesting credential stuffing or brute force
 
-Candidates to evaluate:
-{json.dumps(context["candidates"], indent=2, default=str)}
+Candidates:
+{json.dumps(candidates_for_prompt, indent=2, default=str)}
 
-Instructions:
-- Only report findings with confidence >= 0.50 — skip low-signal noise
-- Write explanations for a SOC analyst: specific, actionable, 1-2 sentences
-- Use ONLY the entry_ids already listed in each candidate — do not modify or add IDs
-
-Respond with a JSON array (empty array [] if nothing meets the threshold):
+Respond with a JSON array — one object for EVERY candidate (do not skip any):
 [
   {{
+    "index": <same index as the candidate>,
     "anomaly_type": "<candidate_type>",
-    "explanation": "<SOC-analyst-facing explanation>",
-    "confidence": <0.0-1.0>,
-    "log_entry_ids": ["<id>", ...]
+    "explanation": "<1-2 sentence SOC-analyst explanation, specific and actionable>",
+    "confidence": <0.0-1.0>
   }}
-]"""
+]
+Do NOT include entry_ids — Python handles ID assignment."""
 
     response = _client.messages.create(
         model=ENRICH_MODEL,
@@ -332,16 +340,20 @@ Respond with a JSON array (empty array [] if nothing meets the threshold):
         for item in items:
             if not isinstance(item, dict):
                 continue
-            # Only keep IDs that actually exist in our candidate data
-            safe_ids = [eid for eid in item.get("log_entry_ids", []) if eid in all_candidate_ids]
-            if not safe_ids:
+            conf = float(item.get("confidence", 0))
+            if conf < 0.35:
+                continue
+            candidate = candidates_by_index.get(item.get("index"))
+            if candidate is None:
                 continue
             validated.append({
-                "anomaly_type": item.get("anomaly_type", "ai_detected"),
+                "anomaly_type": item.get("anomaly_type") or candidate["candidate_type"],
                 "explanation": item.get("explanation", ""),
-                "confidence": float(item.get("confidence", 0.5)),
-                "log_entry_ids": safe_ids,
+                "confidence": conf,
+                "log_entry_ids": candidate["entry_ids"],
             })
         return validated
-    except Exception:
+    except Exception as exc:
+        import sys
+        print(f"[ai_detect] failed: {exc}", file=sys.stderr)
         return []

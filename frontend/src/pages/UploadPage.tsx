@@ -8,7 +8,7 @@ type Analysis = { id: string; filename: string; status: string; created_at: stri
 type AnomalyTypeDef = {
   id: string;
   label: string;
-  group: "rule" | "ai";
+  group: "rule" | "behavioral";
   description: string;
 };
 
@@ -40,23 +40,23 @@ const ANOMALY_TYPES: AnomalyTypeDef[] = [
   { id: "off_hours",        group: "rule", label: "Off-Hours Access",   description: "Network activity occurring between 11 PM and 5 AM outside normal business hours." },
   { id: "blocked_threat",   group: "rule", label: "Blocked Threat",     description: "A request blocked by ZScaler with an identified malware or threat signature attached." },
   { id: "rare_destination", group: "rule", label: "Rare Destination",   description: "A single request to an unknown-category domain not seen anywhere else in the log." },
-  { id: "beaconing",        group: "ai",   label: "Beaconing",          description: "Regular-interval requests to the same host — a pattern consistent with C2 check-ins that rules can't express." },
-  { id: "slow_exfil",       group: "ai",   label: "Slow Exfiltration",  description: "Many medium-sized transfers that individually stay under thresholds but exceed 50 MB cumulatively." },
-  { id: "ua_anomaly",       group: "ai",   label: "UA Anomaly",         description: "Requests using programmatic clients (curl, python-requests) instead of standard browser user agents." },
-  { id: "auth_abuse",       group: "ai",   label: "Auth Abuse",         description: "An IP with 70%+ authentication failures across multiple destinations — consistent with credential stuffing." },
+  { id: "beaconing",        group: "behavioral",   label: "Beaconing",          description: "Regular-interval requests to the same host — a pattern consistent with C2 check-ins that rules can't express." },
+  { id: "slow_exfil",       group: "behavioral",   label: "Slow Exfiltration",  description: "Many medium-sized transfers that individually stay under thresholds but exceed 50 MB cumulatively." },
+  { id: "ua_anomaly",       group: "behavioral",   label: "UA Anomaly",         description: "Requests using programmatic clients (curl, python-requests) instead of standard browser user agents." },
+  { id: "auth_abuse",       group: "behavioral",   label: "Auth Abuse",         description: "An IP with 70%+ authentication failures across multiple destinations — consistent with credential stuffing." },
 ];
 
 const TYPE_LABEL: Record<string, string> = Object.fromEntries(ANOMALY_TYPES.map(t => [t.id, t.label]));
 const RULE_TYPES = ANOMALY_TYPES.filter(t => t.group === "rule");
-const AI_TYPES   = ANOMALY_TYPES.filter(t => t.group === "ai");
-const AI_TYPE_IDS = new Set(AI_TYPES.map(t => t.id));
+const AI_TYPES   = ANOMALY_TYPES.filter(t => t.group === "behavioral");
+const BEHAVIORAL_TYPE_IDS = new Set(AI_TYPES.map(t => t.id));
 
 function typeRowBg(t: string): string {
   if (t === "blocked_threat" || t === "auth_abuse") return `${colors.dangerBg}CC`;
   if (t === "data_exfil") return "#2C1008CC";
   if (t === "ip_spike") return `${colors.warningBg}CC`;
   if (t === "off_hours") return `${colors.accentBg}CC`;
-  if (AI_TYPE_IDS.has(t)) return "#1B0E3ACC";
+  if (BEHAVIORAL_TYPE_IDS.has(t)) return "#1B0E3ACC";
   return `${colors.bgElevated}CC`;
 }
 
@@ -65,7 +65,7 @@ function typeBadgeStyle(t: string): React.CSSProperties {
   if (t === "data_exfil") return { background: "#2C1008", color: "#FB923C", border: "1px solid #7C2D12" };
   if (t === "ip_spike") return { background: colors.warningBg, color: colors.warning, border: "1px solid #713F12" };
   if (t === "off_hours") return { background: colors.accentBg, color: colors.accent, border: `1px solid ${colors.accent}44` };
-  if (AI_TYPE_IDS.has(t)) return { background: "#1B0E3A", color: "#A78BFA", border: "1px solid #4C1D95" };
+  if (BEHAVIORAL_TYPE_IDS.has(t)) return { background: "#1B0E3A", color: "#A78BFA", border: "1px solid #4C1D95" };
   return { background: colors.bgElevated, color: colors.textSecondary, border: `1px solid ${colors.border}` };
 }
 
@@ -155,7 +155,7 @@ export default function UploadPage() {
     <div style={styles.page}>
       <nav style={styles.nav}>
         <div style={styles.navBrand}>
-          <div style={styles.logoMark}>⬡</div>
+          <div style={styles.logoMark}>🔍</div>
           <span style={styles.logoText}>SOC Log Analyzer</span>
         </div>
         <button style={styles.logoutBtn} onClick={logout}>Sign out</button>
@@ -195,7 +195,7 @@ export default function UploadPage() {
 
         <div style={styles.genCard}>
           <TypeGroup label="Rule-Based Detection" types={RULE_TYPES} selected={selected} hoveredType={hoveredType} onToggle={toggleType} onHover={setHoveredType} />
-          <TypeGroup label="AI-Powered Detection" types={AI_TYPES} selected={selected} hoveredType={hoveredType} onToggle={toggleType} onHover={setHoveredType} accentColor="#A78BFA" />
+          <TypeGroup label="Behavioral Detection" types={AI_TYPES} selected={selected} hoveredType={hoveredType} onToggle={toggleType} onHover={setHoveredType} accentColor="#A78BFA" />
           <div style={styles.genFooter}>
             <span style={styles.genCount}>{selected.size} of {ANOMALY_TYPES.length} anomaly types selected</span>
             <div style={{ display: "flex", gap: 8 }}>
@@ -455,7 +455,7 @@ const styles: Record<string, React.CSSProperties> = {
   page: { minHeight: "100vh", background: colors.bgPage, fontFamily: "system-ui, sans-serif" },
   nav: { display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 2rem", height: 56, background: colors.bgSurface, borderBottom: `1px solid ${colors.border}`, boxShadow: `0 1px 0 ${colors.border}` },
   navBrand: { display: "flex", alignItems: "center", gap: 10 },
-  logoMark: { width: 24, height: 24, borderRadius: 5, background: `linear-gradient(135deg, ${colors.accent}, ${colors.accentDim})`, boxShadow: `0 0 10px ${colors.accent}55`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, color: colors.bgPage, fontWeight: 900 },
+  logoMark: { width: 24, height: 24, borderRadius: 5, background: `linear-gradient(135deg, ${colors.accent}, ${colors.accentDim})`, boxShadow: `0 0 10px ${colors.accent}55`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, color: colors.bgPage, fontWeight: 900 },
   logoText: { color: colors.textPrimary, fontWeight: 700, fontSize: 14 },
   logoutBtn: { background: "transparent", border: `1px solid ${colors.border}`, color: colors.textMuted, padding: "5px 14px", borderRadius: 6, cursor: "pointer", fontSize: 13 },
   content: { maxWidth: 720, margin: "2.5rem auto", padding: "0 1rem" },

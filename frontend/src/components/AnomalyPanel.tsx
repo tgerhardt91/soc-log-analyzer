@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { colors } from "../theme";
 
-const AI_TYPES = new Set(["beaconing", "slow_exfil", "ua_anomaly", "auth_abuse", "ai_detected"]);
+const BEHAVIORAL_TYPES = new Set(["beaconing", "slow_exfil", "ua_anomaly", "auth_abuse", "behavioral_detected"]);
 
 type LogEntry = {
   id: string;
@@ -29,8 +29,8 @@ export default function AnomalyPanel({ anomalies }: { anomalies: Anomaly[] }) {
     <div style={styles.empty}>No anomalies detected.</div>
   );
 
-  const ruleAnomalies = anomalies.filter(a => !AI_TYPES.has(a.anomaly_type));
-  const aiAnomalies   = anomalies.filter(a =>  AI_TYPES.has(a.anomaly_type));
+  const ruleAnomalies = anomalies.filter(a => !BEHAVIORAL_TYPES.has(a.anomaly_type));
+  const aiAnomalies   = anomalies.filter(a =>  BEHAVIORAL_TYPES.has(a.anomaly_type));
 
   const renderAnomaly = (a: Anomaly) => (
     <div key={a.id} style={{
@@ -103,7 +103,7 @@ export default function AnomalyPanel({ anomalies }: { anomalies: Anomaly[] }) {
         {aiAnomalies.length > 0 && (
           <>
             <div style={{ ...styles.sectionLabel, color: "#A78BFA", marginTop: ruleAnomalies.length > 0 ? 12 : 0 }}>
-              AI-Powered Detection
+              Behavioral Detection
             </div>
             {aiAnomalies.map(renderAnomaly)}
           </>
@@ -138,7 +138,7 @@ function typeBorderColor(t: string): string {
   if (t === "ip_spike") return colors.warning;
   if (t === "off_hours") return colors.accent;
   if (t === "auth_abuse") return colors.danger;
-  if (t === "beaconing" || t === "slow_exfil" || t === "ua_anomaly" || t === "ai_detected") return "#7C3AED";
+  if (t === "beaconing" || t === "slow_exfil" || t === "ua_anomaly" || t === "behavioral_detected") return "#7C3AED";
   return colors.textMuted;
 }
 
@@ -148,7 +148,7 @@ function typeColor(t: string): React.CSSProperties {
   if (t === "ip_spike") return { background: colors.warningBg, color: colors.warning, border: "1px solid #713F12" };
   if (t === "off_hours") return { background: colors.accentBg, color: colors.accent, border: `1px solid ${colors.accent}44` };
   if (t === "auth_abuse") return { background: colors.dangerBg, color: colors.danger, border: `1px solid ${colors.dangerMid}` };
-  if (t === "beaconing" || t === "slow_exfil" || t === "ua_anomaly" || t === "ai_detected")
+  if (t === "beaconing" || t === "slow_exfil" || t === "ua_anomaly" || t === "behavioral_detected")
     return { background: "#1B0E3A", color: "#A78BFA", border: "1px solid #4C1D95" };
   return { background: colors.bgElevated, color: colors.textSecondary, border: `1px solid ${colors.border}` };
 }

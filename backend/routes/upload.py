@@ -118,6 +118,12 @@ def upload():
     filepath = os.path.join(config.UPLOAD_DIR, safe_name)
     file.save(filepath)
 
+    with open(filepath, encoding="utf-8", errors="replace") as f:
+        event_count = sum(1 for line in f if line.strip() and not line.strip().startswith("#"))
+    if event_count > 500:
+        os.remove(filepath)
+        return jsonify({"error": f"File contains {event_count:,} events. Maximum allowed is 500."}), 400
+
     analysis = Analysis(id=analysis_id, filename=file.filename, status="pending")
     db.session.add(analysis)
     db.session.commit()
